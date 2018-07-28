@@ -9,13 +9,6 @@
 <div class="prompt input_prompt"><strong>Project Objective:</strong></div>
 <div class="prompt input_prompt">According to the OIG (the Office of Inspector General of the US Department of Health and Human Services), <span style="text-decoration: underline;"><em>every year 3000-4000</em></span> healthcare practitioners have their medical licenses revoked for various healthcare violations including medicare fraud.&nbsp;</div>
 <br />
-# <html>
-# <head>
-# <meta http-equiv=Content-Type content="text/html; charset=macintosh">
-# <meta name=ProgId content=Excel.Sheet>
-# <meta name=Generator content="Microsoft Excel 14">
-# <link rel=File-List href="LEIE_Summary_files/filelist.xml">
-# <style>
 <!--table
 	{mso-displayed-decimal-separator:"\.";
 	mso-displayed-thousand-separator:"\,";}
@@ -373,7 +366,3 @@ td
   <td class=xl67></td>
  </tr>
 </table>
-
-# </body>
-
-# </html>
