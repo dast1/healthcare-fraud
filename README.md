@@ -32,13 +32,13 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <div class="prompt input_prompt">
 ......<br />
 <br />
-<div class="prompt input_prompt"><strong>5. How will you present your work? Web app - where will you host it, what kind of information will you present? Visualization - what final visuals are you aiming to produce? Presentation - slides, interpretive dance?:</strong></div>
+<div class="prompt input_prompt"><strong>5. Presentation Format:</strong></div>
 <div class="prompt input_prompt">
 <p><strong>Presentation format:</strong></p>
 <ol>
-<li>Data visualization will be done in Tableau (I will also look into d3.js)</li>
-<li>Presentation of the research will be done using PowerPoint ( I will also explore other alternatives such as Canva, Prezi, &amp; SlideDog)</li>
-<li>If the research findings have a high predictive value, a web app will be developed jointly with a student from a web-dev cohort.</li>
+<li>Data visualization will be done in Tableau</li>
+<li>Presentation of the research will be done using PowerPoint and a video recording. (I will also explore other alternatives such as Canva, Prezi, &amp; SlideDog)</li>
+<li>All materials for this capstone project, including code,  will also be publicaly available on my personal <a href="https://dast1.github.io">github page</a>. </li>
 </ol><br />
 <br />
 <div class="prompt input_prompt"><strong>6. What are your data sources? What is the size of your dataset, and what is your storage format?:</strong></div>
