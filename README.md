@@ -16,7 +16,8 @@ The primary objective of this project is to develop a Machine Learning model tha
 <br />
 <div class="prompt input_prompt"><strong>2. How has this problem been solved before? If you feel like you are addressing a novel issue, what similar problems have been solved, and how are you borrowing from those?:</strong></div>
 <div class="prompt input_prompt">
-The Office of Inspector General investigates complaints or allegations of wrongdoing or misconduct by employees or contractors that involve or give rise to fraud, waste or abuse within the programs or operations of the FCC.<br />
-Allegations are received primarily from FCC employees and licensees. However, members of Congress, other agencies, citizens, contractors and public interest groups also refer matters to the OIG for investigation. Allegations of suspected wrongdoing are also received from FCC managers and the OIG audit program (source: <a href="https://www.fcc.gov/inspector-general/general/investigations#block-menu-block-4">www.fcc.gov</a>).&nbsp;</div>
-
-<br />
+"The Office of Inspector General investigates complaints or allegations of wrongdoing or misconduct by employees or contractors that involve or give rise to fraud, waste or abuse within the programs or operations of the FCC.<br />
+Allegations are received primarily from FCC employees and licensees. However, members of Congress, other agencies, citizens, contractors and public interest groups also refer matters to the OIG for investigation. Allegations of suspected wrongdoing are also received from FCC managers and the OIG audit program ."(source: <a href="https://www.fcc.gov/inspector-general/general/investigations#block-menu-block-4">www.fcc.gov</a>)<br />
+"James Cosgrove, who directs health care reviews for the Government Accountability Office, told the House Ways and Means oversight subcommittee that the Medicare Advantage improper payment rate was 10 percent in 2016, which comes to $16.2 billion."(source: <a href="https://www.publicintegrity.org/2017/07/19/21011/fraud-and-billing-mistakes-cost-medicare-and-taxpayers-tens-billions-last-year">www.publicintegrity.org</a>)<br />
+Healthcare fraud prevention is a big business and there isn't a shortage of experts and consultants in this space. One of them is <a href="https://www.accenture.com/us-en/company-michael-petersen">Dr. Mike Peterson</a> from Accenture. I've reached out to him through a mutual friend and was told that Accenture has a team of data scientist working on similar problems.<br /> 
+&nbsp;</div>
