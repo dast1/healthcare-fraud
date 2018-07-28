@@ -34,7 +34,6 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>5. Presentation Format:</strong></div>
 <div class="prompt input_prompt">
-<p><strong>Presentation format:</strong></p>
 <ol>
 <li>Data visualization will be done in Tableau</li>
 <li>Presentation of the research will be done using PowerPoint and a video recording. (I will also explore other alternatives such as Canva, Prezi, &amp; SlideDog)</li>
