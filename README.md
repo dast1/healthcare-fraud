@@ -23,3 +23,7 @@ Allegations are received primarily from FCC employees and licensees. However, me
 <br />
 Healthcare fraud prevention is a big business and there isn't a shortage of experts and consultants in this space. One of them is <a href="https://www.accenture.com/us-en/company-michael-petersen">Dr. Mike Peterson</a> from Accenture. I've reached out to him through a mutual friend and was told that Accenture has a team of data scientist working on similar problems.<br /> 
 &nbsp;</div>
+<br />
+<div class="prompt input_prompt"><strong>3. What is new about your approach, why do you think it will be successful?:</strong></div>
+<div class="prompt input_prompt">
+As previsously mentioned, Healthcare fraud prevention is a big business and there are lot of smart people who are trying to solve this huge problem. My goal, isn't to discover the solution for the whole problem but simply to make a meaningful contribution to a specific aspect of this problem using AI and ML.<br />
