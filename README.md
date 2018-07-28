@@ -17,7 +17,5 @@ The primary objective of this project is to develop a Machine Learning model tha
 <div class="prompt input_prompt"><strong>2. How has this problem been solved before? If you feel like you are addressing a novel issue, what similar problems have been solved, and how are you borrowing from those?:</strong></div>
 <div class="prompt input_prompt">
 The Office of Inspector General investigates complaints or allegations of wrongdoing or misconduct by employees or contractors that involve or give rise to fraud, waste or abuse within the programs or operations of the FCC.<br />
-<br />
-Allegations are received primarily from FCC employees and licensees. However, members of Congress, other agencies, citizens, contractors and public interest groups also refer matters to the OIG for investigation. Allegations of suspected wrongdoing are also received from FCC managers and the OIG audit program. (<a href="https://www.fcc.gov/inspector-general/general/investigations#block-menu-block-4"></a>source<br />)
-The primary objective of this project is to develop a Machine Learning model that will aid the OIG to target investigations into potential healthcare fraud or abuse more accurately.&nbsp;</div>
+Allegations are received primarily from FCC employees and licensees. However, members of Congress, other agencies, citizens, contractors and public interest groups also refer matters to the OIG for investigation. Allegations of suspected wrongdoing are also received from FCC managers and the OIG audit program.&nbsp;</div>
 <br />
