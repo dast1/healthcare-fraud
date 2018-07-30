@@ -63,10 +63,21 @@ The primary concern for me with regards to this project is my lack of domain exp
 <br />
 <div clas s="prompt input_prompt"><strong>8. What is the next thing you need to work on? Getting the data, not just some, likely all? Understanding the data? Building a minimum viable product? Gauging how much signal might be in the data?:</strong></div>
 <div class="prompt input_prompt">
-A quick dive into the Medicare Part D data for 2013 reveals:<br />
+1. Getting data:<br />
 <ol>
-<li> total dollar amount and prescription quantity prescribed over 2800 unique drugs names,</li>
+<li>Crime data,</li>
+<li>Demographic data</li>
+</ol>
+2. Perform EDA:<br />
+<ol>
+<li>List of Excluded Individuals/Entities (LEIE),</li>
+<li>Medicare Part D Prescriber Data,</li>
+<li>Controlled Substance List (in 16 pages in PDF)</li>
+</ol>
+3. A quick dive into the Medicare Part D data for 2013 reveals:<br />
+<ol>
+<li> total dollar amount and prescription quantities for over 2800 unique drugs names,</li>
 <li>over 250 specializations among healthcare providers,</li>
 <li>across 50 US states and 16,000 cities</li>
-</ol><br />
-The sprase feature matrix can easily be over 10,000 features for 800,000 unique NPIs. Therefore, I have to build a model using Spark on AWS EMR. <br />
+</ol>
+The sprase feature matrix can easily be over 10,000 features for 800,000 unique NPIs for each year. This feature matrix can easily exceed 200 Gigs. Therefore, I will have to build a model using Spark on AWS EMR. <br />
