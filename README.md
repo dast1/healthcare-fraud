@@ -43,19 +43,21 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>6. What are your data sources? What is the size of your dataset, and what is your storage format?:</strong></div>
 <div class="prompt input_prompt">
+<ul>
 <li>
 <p><strong>List of offenders:</strong> The OIG maintains a List of Excluded Individuals/Entities (LEIE) from Federally funded health care programs pursuant to section 1128 of the Social Security Act (Act) and from Medicare and State health care programs under section 1156 of the Act). In addition to an online search tool, they have a flat file database avaialable for dowload. The records go back to 1977 and the most recent file is about 12.6MB.</p>
 </li>
 <li>
 <p><strong>Prescription data:</strong> The Center for Medicare and Medicaid Services has a set of various health related data sets, including the Medicare Part D Prescriber Data &amp; Opioid Drug list. The Prescriber data sets for 2013-2016 years are available as flat files and range anywhere from 500-600MB for each year. Information contained in these record can be easily joined with the data from OIG as they both share multiple common fields such as first, last, or business name of the health practioner, their address and a National Provider Identifier or NPI - a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services (CMS).</p>
 </li>
-<li><strong>DEA Controlled Substance List:</strong> "Drugs, substances, and certain chemicals used to make drugs are classified into five (5) distinct categories or schedules depending upon the drug&rsquo;s acceptable medical use and the drug&rsquo;s abuse or dependency potential. The abuse rate is a determinate factor in the scheduling of the drug; for example, Schedule I drugs have a high potential for abuse and the potential to create severe psychological and/or physical dependence. As the drug schedule changes-- Schedule II, Schedule III, etc., so does the abuse potential-- Schedule V drugs represents the least potential for abuse. A <a href="https://www.dea.gov/druginfo/ds.shtml">Listing of drugs</a> and their schedule are located at Controlled Substance Act (CSA) Scheduling or CSA Scheduling by Alphabetical Order." </li>
+<li><strong>DEA Controlled Substance List:</strong> "Drugs, substances, and certain chemicals used to make drugs are classified into five (5) distinct categories or schedules depending upon the drug&rsquo;s acceptable medical use and the drug&rsquo;s abuse or dependency potential. The abuse rate is a determinate factor in the scheduling of the drug; for example, Schedule I drugs have a high potential for abuse and the potential to create severe psychological and/or physical dependence. As the drug schedule changes-- Schedule II, Schedule III, etc., so does the abuse potential-- Schedule V drugs represents the least potential for abuse. A <a href="https://www.dea.gov/druginfo/ds.shtml" rel="nofollow">Listing of drugs</a> and their schedule are located at Controlled Substance Act (CSA) Scheduling or CSA Scheduling by Alphabetical Order."</li>
 <li>
 <p><strong>Crime data:</strong> Socrata claims that they are a market leader in making existing government data discoverable, usable, and actionable for government workers and the people they serve. All data is available in a json format and I have already registered and obtained an app token. A quick look through their data revealed that most of their data-sets are from police departments nationwide. This is exactly what I was looking for to incorporate into my model so I can norrow down the geographical regions where offending health practitioners operate.</p>
 </li>
+<li>
 <p><strong>Demographic data:</strong> The United States Census Bureau has a large set of demographic data. I plan on incorporating income and education into my model and explore how they impact the predictive peroformance.</p>
 </li>
-</ol><br />
+</ul>
 <br />
 <div class="prompt input_prompt"><strong>7. What are potential problems with your capstone, and what have you done to mitigate these problems?:</strong></div>
 <div class="prompt input_prompt">
