@@ -35,11 +35,11 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>5. Presentation Format:</strong></div>
 <div class="prompt input_prompt">
-<ol>
+<ul>
 <li>Data visualization will be done in Tableau</li>
 <li>Presentation of the research will be done using PowerPoint and a video recording. (I will also explore other alternatives such as Canva, Prezi, &amp; SlideDog)</li>
-<li>All materials for this capstone project, including code,  will also be publicaly available on my personal <a href="https://dast1.github.io">github page</a>. </li>
-</ol><br />
+<li>All materials for this capstone project, including code, will also be publicaly available on my personal <a href="https://dast1.github.io/" rel="nofollow">github page</a>.</li>
+</ul>
 <br />
 <div class="prompt input_prompt"><strong>6. What are your data sources? What is the size of your dataset, and what is your storage format?:</strong></div>
 <div class="prompt input_prompt">
