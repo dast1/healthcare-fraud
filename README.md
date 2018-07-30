@@ -30,7 +30,8 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>4. Who cares? If you're successful, what will the impact be?:</strong></div>
 <div class="prompt input_prompt">
-......<br />
+"MFCUs coordinated over 18,000 investigations for Medicaid fraud and neglect, where fraud made up 15,509 of that total. The results of the investigations led to a total recovery of $1.8 billion,..." 
+"Texas ($53,618,692), California ($27,240,288), and Ohio ($23,031,251) respectively ranked 3rd, 4th, and 5th in the greatest number of criminal recoveries. These states also ranked in the top five for investigations in Medicaid fraud. A significant outlier for recovery amounts was Florida, where the MFCUs recovered $101,059,813 in Medicaid fraud, the highest by far of any state in the country." (Source: <a href="https://healthpayerintelligence.com/news/medicaid-fraud-control-units-recovered-1.8-billion-in-2016">www.healthpayerintelligence.com</a>)<br />
 <br />
 <div class="prompt input_prompt"><strong>5. Presentation Format:</strong></div>
 <div class="prompt input_prompt">
