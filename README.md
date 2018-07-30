@@ -53,7 +53,6 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <li>
 <p><strong>Crime data:</strong> Socrata claims that they are a market leader in making existing government data discoverable, usable, and actionable for government workers and the people they serve. All data is available in a json format and I have already registered and obtained an app token. A quick look through their data revealed that most of their data-sets are from police departments nationwide. This is exactly what I was looking for to incorporate into my model so I can norrow down the geographical regions where offending health practitioners operate.</p>
 </li>
-<li>
 <p><strong>Demographic data:</strong> The United States Census Bureau has a large set of demographic data. I plan on incorporating income and education into my model and explore how they impact the predictive peroformance.</p>
 </li>
 </ol><br />
