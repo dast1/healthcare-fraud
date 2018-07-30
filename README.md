@@ -21,7 +21,7 @@ Allegations are received primarily from FCC employees and licensees. However, me
 <br />
 "James Cosgrove, who directs health care reviews for the Government Accountability Office, told the House Ways and Means oversight subcommittee that the Medicare Advantage improper payment rate was 10 percent in 2016, which comes to $16.2 billion." (source: <a href="https://www.publicintegrity.org/2017/07/19/21011/fraud-and-billing-mistakes-cost-medicare-and-taxpayers-tens-billions-last-year">www.publicintegrity.org</a>)<br />
 <br />
-Healthcare fraud prevention is a big business and there isn't a shortage of experts and consultants in this space. One of them is <a href="https://www.accenture.com/us-en/company-michael-petersen">Dr. Mike Peterson</a> from Accenture. I've reached out to him through a mutual friend and was told that Accenture has a team of data scientist working on similar problems.<br /> 
+Healthcare fraud prevention is a big business and there isn't a shortage of experts and consultants in this space. One of them is <a href="https://www.accenture.com/us-en/company-michael-petersen">Dr. Mike Peterson</a> from Accenture. I've reached out to him through a mutual friend and was told that Accenture has a team of data scientists working on problems such as these. Dr. Peterson, seems very interested in my project and I plan on inviting him or someone from his team to the DSI71 cap-stone presentation day.<br /> 
 &nbsp;</div>
 <br />
 <div class="prompt input_prompt"><strong>3. What is new about your approach, why do you think it will be successful?:</strong></div>
@@ -42,12 +42,31 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>6. What are your data sources? What is the size of your dataset, and what is your storage format?:</strong></div>
 <div class="prompt input_prompt">
-......<br />
+<li>
+<p><strong>List of offenders:</strong> The OIG maintains a List of Excluded Individuals/Entities (LEIE) from Federally funded health care programs pursuant to section 1128 of the Social Security Act (Act) and from Medicare and State health care programs under section 1156 of the Act). In addition to an online search tool, they have a flat file database avaialable for dowload. The records go back to 1977 and the most recent file is about 12.6MB.</p>
+</li>
+<li>
+<p><strong>Prescription data:</strong> The Center for Medicare and Medicaid Services has a set of various health related data sets, including the Medicare Part D Prescriber Data &amp; Opioid Drug list. The Prescriber data sets for 2013-2016 years are available as flat files and range anywhere from 500-600MB for each year. Information contained in these record can be easily joined with the data from OIG as they both share multiple common fields such as first, last, or business name of the health practioner, their address and a National Provider Identifier or NPI - a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services (CMS).</p>
+</li>
+<li><strong>DEA Controlled Substance List:</strong> "Drugs, substances, and certain chemicals used to make drugs are classified into five (5) distinct categories or schedules depending upon the drug&rsquo;s acceptable medical use and the drug&rsquo;s abuse or dependency potential. The abuse rate is a determinate factor in the scheduling of the drug; for example, Schedule I drugs have a high potential for abuse and the potential to create severe psychological and/or physical dependence. As the drug schedule changes-- Schedule II, Schedule III, etc., so does the abuse potential-- Schedule V drugs represents the least potential for abuse. A <a href="https://www.dea.gov/druginfo/ds.shtml">Listing of drugs</a> and their schedule are located at Controlled Substance Act (CSA) Scheduling or CSA Scheduling by Alphabetical Order." </li>
+<li>
+<p><strong>Crime data:</strong> Socrata claims that they are a market leader in making existing government data discoverable, usable, and actionable for government workers and the people they serve. All data is available in a json format and I have already registered and obtained an app token. A quick look through their data revealed that most of their data-sets are from police departments nationwide. This is exactly what I was looking for to incorporate into my model so I can norrow down the geographical regions where offending health practitioners operate.</p>
+</li>
+<li>
+<p><strong>Demographic data:</strong> The United States Census Bureau has a large set of demographic data. I plan on incorporating income and education into my model and explore how they impact the predictive peroformance.</p>
+</li>
+</ol><br />
 <br />
 <div class="prompt input_prompt"><strong>7. What are potential problems with your capstone, and what have you done to mitigate these problems?:</strong></div>
 <div class="prompt input_prompt">
-......<br />
+The primary concern for me with rregards to this project is my lack of domain expertise. That's why I've established contacts with Dr. Mike Peterson from Accenture and Dr. Ted Spears from the Office of Inspector General of the Texas Department of Human Health Services.<br />
 <br />
 <div clas s="prompt input_prompt"><strong>8. What is the next thing you need to work on? Getting the data, not just some, likely all? Understanding the data? Building a minimum viable product? Gauging how much signal might be in the data?:</strong></div>
 <div class="prompt input_prompt">
-......<br />
+A quick dive into the Medicare Part D data for 2013 reveals:<br />
+<ol>
+<li> total dollar amount and prescription quantity prescribed over 2800 unique drugs names,</li>
+<li>over 250 specializations among healthcare providers,</li>
+<li>across 50 US states and 16,000 cities</li>
+</ol><br />
+The sprase feature matrix can easily be over 10,000 features for 800,000 unique NPIs. Therefore, I have to build a model using Spark on AWS EMR. <br />
