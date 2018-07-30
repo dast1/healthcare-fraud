@@ -59,7 +59,7 @@ Heathcare fraud is a big, multi faceted, complex problem and there are lot of sm
 <br />
 <div class="prompt input_prompt"><strong>7. What are potential problems with your capstone, and what have you done to mitigate these problems?:</strong></div>
 <div class="prompt input_prompt">
-The primary concern for me with rregards to this project is my lack of domain expertise. That's why I've established contacts with Dr. Mike Peterson from Accenture and Dr. Ted Spears from the Office of Inspector General of the Texas Department of Human Health Services.<br />
+The primary concern for me with regards to this project is my lack of domain expertise. That's why I've established contacts with <a href="https://www.accenture.com/us-en/company-michael-petersen">Dr. Mike Peterson</a> from Accenture and Dr. Ted Spears, Chief Medical Officer for the Inspector General of the Texas Health and Human Services Commission.<br />
 <br />
 <div clas s="prompt input_prompt"><strong>8. What is the next thing you need to work on? Getting the data, not just some, likely all? Understanding the data? Building a minimum viable product? Gauging how much signal might be in the data?:</strong></div>
 <div class="prompt input_prompt">
