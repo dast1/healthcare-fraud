@@ -65,14 +65,14 @@ The primary concern for me with regards to this project is my lack of domain exp
 <div class="prompt input_prompt">
 1. Getting data:<br />
 <ol>
-<li>Crime data,</li>
-<li>Demographic data</li>
+<p>Crime data,</li>
+<p>Demographic data</li>
 </ol>
 2. Perform EDA:<br />
 <ol>
-<li>List of Excluded Individuals/Entities (LEIE),</li>
-<li>Medicare Part D Prescriber Data,</li>
-<li>Controlled Substance List (in 16 pages in PDF)</li>
+<p>List of Excluded Individuals/Entities (LEIE),</li>
+<p>Medicare Part D Prescriber Data,</li>
+<p>Controlled Substance List (in 16 pages in PDF)</li>
 </ol>
 3. A quick dive into the Medicare Part D data for 2013 reveals:<br />
 <ol>
