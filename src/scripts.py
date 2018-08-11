@@ -22,7 +22,7 @@ def save_to_efs(df, f_name, **kwargs):
     Output: None
     '''
     efs_path = '~/SageMaker/efs/DrFraud/data/{}'.format(f_name)
-    df.to_csv(efs_path, sep=',', **kwargs)
+    return df.to_csv(efs_path, sep=',', **kwargs)
 
 def read_s3(f_name, **kwargs):
     '''
@@ -42,13 +42,6 @@ def add_year(df, year):
     df['year'] = pd.Series([year] * len(df))
     return df
 
-def save2efs(df, f_name):
-    '''
-    Input: pd.DataFrame, year as `int` type
-    Output: pd.DatafFrame with added `year` column
-    '''
-    efs_path = '~/SageMaker/efs/DrFraud/data/{}'.format(f_name)
-    df.to_csv(efs_path, sep=',')
     
 def parallelize_dataframe(df, func):
     '''
