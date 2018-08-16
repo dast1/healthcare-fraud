@@ -158,7 +158,7 @@ def plot_multi_log(data, threshold_value, xlabel, cols=None, spacing=.1, **kwarg
     return ax
 
 def log_plot(data, threshold, title, ylabel, xlabel, **kwargs):
-    ax = data.plot(logx=True, logy=True, figsize=(8,5))
+    ax = data.plot(**kwargs)
     ax.axvline(threshold, color='r', linestyle='-', linewidth=1)
     ax.grid(color='k', linestyle='--', linewidth=1)
     ax.legend([ylabel, 'Threshold at {} position'.format(threshold)])
