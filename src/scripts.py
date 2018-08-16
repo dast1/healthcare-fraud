@@ -165,3 +165,9 @@ def log_plot(data, threshold, title, ylabel, xlabel, **kwargs):
     ax.set_ylabel(ylabel=ylabel)
     ax.set_xlabel(xlabel=xlabel)
     return ax
+
+def get_size(df):
+    '''
+    Get a the pd.dataframe size in Gigabytes.
+    '''
+    return str(round(sum(df.memory_usage()/10**6), 2)) + ' Mb'
