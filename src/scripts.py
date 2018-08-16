@@ -2,9 +2,7 @@ import pandas as pd
 import boto3
 import numpy as np
 from multiprocessing import Pool
-
-
-
+import matplotlib.pyplot as plt
 
 
 def read_from_efs(f_name, **kwargs):
@@ -171,3 +169,34 @@ def get_size(df):
     Get a the pd.dataframe size in Gigabytes.
     '''
     return str(round(sum(df.memory_usage()/10**6), 2)) + ' Mb'
+
+def print_info(df, name_string):
+    print('{} pd.DataFrame shape: {}'.format(name_string, df.shape))
+    print('{} pd.DataFrame size: {}'.format(name_string, get_size(df)))
+    
+def get_intersection_by_npi(LEIE, PartD):
+    npi_excl = set(LEIE['NPI'])
+    npi = set(PartD['npi'])
+    common_npi = npi_excl.intersection(npi)
+    NPI_df = LEIE[['NPI','EXCLTYPE','EXCLDATE','REINDATE']][LEIE['NPI']\
+                                                          .isin(common_npi)]\
+                                                          .drop_duplicates()\
+                                                          .reset_index(drop=True)
+    return NPI_df
+
+def get_NPI_counts(PartD, LEIE):
+    PartD_npi = set(PartD['npi'])
+    LEIE_npi = set(LEIE['NPI'][(LEIE['NPI'] != 0) & (pd.to_datetime(LEIE["EXCLDATE"], format="%Y%m%d").dt.year > 2013)])
+    match_by_npi = PartD_npi.intersection(LEIE_npi)
+
+    npi_dict = {'Participating healthcare providers in Medicare Part D': len(PartD_npi),
+                'Excluded healthcare providers since 2014 with an NPI': len(LEIE_npi),
+                'Total matches by NPI': len(match_by_npi)}
+
+    NPI_counts = pd.DataFrame.from_dict(npi_dict, orient='index')
+    NPI_counts.rename(columns={0:'Count'}, inplace=True)
+
+    return NPI_counts
+
+def bar_plot_NPI_count(NPI_counts):
+    NPI_counts.plot.barh(logx=True, grid=True, figsize=(8,5), fontsize=14, legend=None, title='Count')
