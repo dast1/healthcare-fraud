@@ -8,7 +8,7 @@
 <div class="cell text_cell unselected rendered" tabindex="2">
 <div class="prompt input_prompt"><strong>1. Project Objective:</strong></div>
 <div class="prompt input_prompt">
-There over 800,000 healthcare providers in the US and since the beginning of 2013, the OIG (the Office of Inspector General of the US Department of Health and Human Services) excluded over 18,000 for various healthcare violations (see table 1: Summary of the List of Excluded Individuals and Entities). 
+There over 1.2MM healthcare providers in the US and since the beginning of 2013, the OIG (the Office of Inspector General of the US Department of Health and Human Services) excluded over 18,000 for various healthcare violations (see table 1: Summary of the List of Excluded Individuals and Entities). 
 <br />
 The primary objective of this project is to develop a Machine Learning model that will aid the OIG to target investigations into potential healthcare fraud or abuse more accurately.&nbsp;</div>
 <br />
