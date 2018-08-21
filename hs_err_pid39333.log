@@ -1,0 +1,3215 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 12288 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=39333, tid=0x00007f1c91feb700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_121-b15) (build 1.8.0_121-b15)
+# Java VM: OpenJDK 64-Bit Server VM (25.121-b15 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f19a0001000):  JavaThread "SparkUI-166" daemon [_thread_new, id=41652, stack(0x00007f1c91eeb000,0x00007f1c91fec000)]
+
+Stack: [0x00007f1c91eeb000,0x00007f1c91fec000],  sp=0x00007f1c91feaa10,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa33e0e]  VMError::report_and_die()+0x14e
+V  [libjvm.so+0x4d8f99]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x99
+V  [libjvm.so+0x8a2cd3]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0xf3
+V  [libjvm.so+0x8a2d9c]  os::pd_commit_memory(char*, unsigned long, bool)+0xc
+V  [libjvm.so+0x89c41a]  os::commit_memory(char*, unsigned long, bool)+0x2a
+V  [libjvm.so+0x8a0da5]  os::pd_create_stack_guard_pages(char*, unsigned long)+0x75
+V  [libjvm.so+0x9dccae]  JavaThread::create_stack_guard_pages()+0x5e
+V  [libjvm.so+0x9e4027]  JavaThread::run()+0x47
+V  [libjvm.so+0x8a6242]  java_start(Thread*)+0x122
+C  [libpthread.so.0+0x7de5]  start_thread+0xc5
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+=>0x00007f19a0001000 JavaThread "SparkUI-166" daemon [_thread_new, id=41652, stack(0x00007f1c91eeb000,0x00007f1c91fec000)]
+  0x00007f1afd15f800 JavaThread "spark-listener-group-streams" daemon [_thread_blocked, id=39582, stack(0x00007f1c91fec000,0x00007f1c920ed000)]
+  0x00007f1980004000 JavaThread "element-tracking-store-worker" daemon [_thread_blocked, id=39580, stack(0x00007f1c926ed000,0x00007f1c927ee000)]
+  0x00007f1afc8e7000 JavaThread "spark-listener-group-executorManagement" daemon [_thread_blocked, id=39579, stack(0x00007f1c927ee000,0x00007f1c928ef000)]
+  0x00007f1afc8e3000 JavaThread "spark-listener-group-appStatus" daemon [_thread_blocked, id=39578, stack(0x00007f1c928ef000,0x00007f1c929f0000)]
+  0x00007f1afc8e0000 JavaThread "context-cleaner-periodic-gc" daemon [_thread_blocked, id=39577, stack(0x00007f1c929f0000,0x00007f1c92af1000)]
+  0x00007f1afc8de000 JavaThread "Spark Context Cleaner" daemon [_thread_blocked, id=39576, stack(0x00007f1c92af1000,0x00007f1c92bf2000)]
+  0x00007f1afc5ae000 JavaThread "shuffle-server-5-1" daemon [_thread_in_native, id=39575, stack(0x00007f1c92df2000,0x00007f1c92ef3000)]
+  0x00007f1afc4c4000 JavaThread "driver-heartbeater" daemon [_thread_blocked, id=39574, stack(0x00007f1c92ef3000,0x00007f1c92ff4000)]
+  0x00007f1afc4c0000 JavaThread "dag-scheduler-event-loop" daemon [_thread_blocked, id=39573, stack(0x00007f1c92ff4000,0x00007f1c930f5000)]
+  0x00007f19ac00c000 JavaThread "netty-rpc-env-timeout" daemon [_thread_blocked, id=39572, stack(0x00007f1c930f5000,0x00007f1c931f6000)]
+  0x00007f1afc491000 JavaThread "Timer-0" daemon [_thread_blocked, id=39571, stack(0x00007f1c931f6000,0x00007f1c932f7000)]
+  0x00007f1ae4001800 JavaThread "heartbeat-receiver-event-loop-thread" daemon [_thread_blocked, id=39570, stack(0x00007f1c935f8000,0x00007f1c936f9000)]
+  0x00007f1afc420800 JavaThread "SparkUI-114-acceptor-3@2e79da07-Spark@3b022610{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}" daemon [_thread_blocked, id=39567, stack(0x00007f1c936f9000,0x00007f1c937fa000)]
+  0x00007f1afc41e800 JavaThread "SparkUI-113-acceptor-2@698d15cd-Spark@3b022610{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}" daemon [_thread_blocked, id=39566, stack(0x00007f1c937fa000,0x00007f1c938fb000)]
+  0x00007f1afc41d000 JavaThread "SparkUI-112-acceptor-1@3352c851-Spark@3b022610{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}" daemon [_thread_in_native, id=39565, stack(0x00007f1c938fb000,0x00007f1c939fc000)]
+  0x00007f1afc41b000 JavaThread "SparkUI-111-acceptor-0@35c5ced8-Spark@3b022610{HTTP/1.1,[http/1.1]}{0.0.0.0:4040}" daemon [_thread_blocked, id=39564, stack(0x00007f1c939fc000,0x00007f1c93afd000)]
+  0x00007f1afc419800 JavaThread "SparkUI-110" daemon [_thread_in_native, id=39563, stack(0x00007f1c93afd000,0x00007f1c93bfe000)]
+  0x00007f1afc417800 JavaThread "SparkUI-109" daemon [_thread_in_native, id=39562, stack(0x00007f1c93bfe000,0x00007f1c93cff000)]
+  0x00007f1afc416000 JavaThread "SparkUI-108" daemon [_thread_in_native, id=39561, stack(0x00007f1c93cff000,0x00007f1c93e00000)]
+  0x00007f1afc410800 JavaThread "SparkUI-107" daemon [_thread_in_native, id=39560, stack(0x00007f1c980c3000,0x00007f1c981c4000)]
+  0x00007f1afc37f000 JavaThread "refresh progress" daemon [_thread_blocked, id=39559, stack(0x00007f1c981c4000,0x00007f1c982c5000)]
+  0x00007f1afc371000 JavaThread "RemoteBlock-temp-file-clean-thread" daemon [_thread_blocked, id=39558, stack(0x00007f1c982c5000,0x00007f1c983c6000)]
+  0x00007f1afc326800 JavaThread "map-output-dispatcher-7" daemon [_thread_blocked, id=39557, stack(0x00007f1c983c6000,0x00007f1c984c7000)]
+  0x00007f1afc325000 JavaThread "map-output-dispatcher-6" daemon [_thread_blocked, id=39556, stack(0x00007f1c984c7000,0x00007f1c985c8000)]
+  0x00007f1afc323000 JavaThread "map-output-dispatcher-5" daemon [_thread_blocked, id=39555, stack(0x00007f1c985c8000,0x00007f1c986c9000)]
+  0x00007f1afc321800 JavaThread "map-output-dispatcher-4" daemon [_thread_blocked, id=39554, stack(0x00007f1c986c9000,0x00007f1c987ca000)]
+  0x00007f1afc31f800 JavaThread "map-output-dispatcher-3" daemon [_thread_blocked, id=39553, stack(0x00007f1c987ca000,0x00007f1c988cb000)]
+  0x00007f1afc31c000 JavaThread "map-output-dispatcher-2" daemon [_thread_blocked, id=39552, stack(0x00007f1c988cb000,0x00007f1c989cc000)]
+  0x00007f1afc319000 JavaThread "map-output-dispatcher-1" daemon [_thread_blocked, id=39551, stack(0x00007f1c989cc000,0x00007f1c98acd000)]
+  0x00007f1afc318000 JavaThread "map-output-dispatcher-0" daemon [_thread_blocked, id=39550, stack(0x00007f1c98acd000,0x00007f1c98bce000)]
+  0x00007f1afc2f6000 JavaThread "rpc-server-3-1" daemon [_thread_in_native, id=39549, stack(0x00007f1c98bce000,0x00007f1c98ccf000)]
+  0x00007f1afc167000 JavaThread "dispatcher-event-loop-63" daemon [_thread_blocked, id=39548, stack(0x00007f1c98ecf000,0x00007f1c98fd0000)]
+  0x00007f1afc165000 JavaThread "dispatcher-event-loop-62" daemon [_thread_blocked, id=39547, stack(0x00007f1c98fd0000,0x00007f1c990d1000)]
+  0x00007f1afc163000 JavaThread "dispatcher-event-loop-61" daemon [_thread_blocked, id=39546, stack(0x00007f1c990d1000,0x00007f1c991d2000)]
+  0x00007f1afc161000 JavaThread "dispatcher-event-loop-60" daemon [_thread_blocked, id=39545, stack(0x00007f1c991d2000,0x00007f1c992d3000)]
+  0x00007f1afc15f000 JavaThread "dispatcher-event-loop-59" daemon [_thread_blocked, id=39544, stack(0x00007f1c992d3000,0x00007f1c993d4000)]
+  0x00007f1afc15d000 JavaThread "dispatcher-event-loop-58" daemon [_thread_blocked, id=39543, stack(0x00007f1c993d4000,0x00007f1c994d5000)]
+  0x00007f1afc15b000 JavaThread "dispatcher-event-loop-57" daemon [_thread_blocked, id=39542, stack(0x00007f1c994d5000,0x00007f1c995d6000)]
+  0x00007f1afc159000 JavaThread "dispatcher-event-loop-56" daemon [_thread_blocked, id=39541, stack(0x00007f1c995d6000,0x00007f1c996d7000)]
+  0x00007f1afc157000 JavaThread "dispatcher-event-loop-55" daemon [_thread_blocked, id=39540, stack(0x00007f1c996d7000,0x00007f1c997d8000)]
+  0x00007f1afc155000 JavaThread "dispatcher-event-loop-54" daemon [_thread_blocked, id=39539, stack(0x00007f1c997d8000,0x00007f1c998d9000)]
+  0x00007f1afc153000 JavaThread "dispatcher-event-loop-53" daemon [_thread_blocked, id=39538, stack(0x00007f1c998d9000,0x00007f1c999da000)]
+  0x00007f1afc151000 JavaThread "dispatcher-event-loop-52" daemon [_thread_blocked, id=39537, stack(0x00007f1c999da000,0x00007f1c99adb000)]
+  0x00007f1afc14f000 JavaThread "dispatcher-event-loop-51" daemon [_thread_blocked, id=39536, stack(0x00007f1c99adb000,0x00007f1c99bdc000)]
+  0x00007f1afc14d800 JavaThread "dispatcher-event-loop-50" daemon [_thread_blocked, id=39535, stack(0x00007f1c99bdc000,0x00007f1c99cdd000)]
+  0x00007f1afc14b800 JavaThread "dispatcher-event-loop-49" daemon [_thread_blocked, id=39534, stack(0x00007f1c99cdd000,0x00007f1c99dde000)]
+  0x00007f1afc149800 JavaThread "dispatcher-event-loop-48" daemon [_thread_blocked, id=39533, stack(0x00007f1c99dde000,0x00007f1c99edf000)]
+  0x00007f1afc148000 JavaThread "dispatcher-event-loop-47" daemon [_thread_blocked, id=39532, stack(0x00007f1c99edf000,0x00007f1c99fe0000)]
+  0x00007f1afc146000 JavaThread "dispatcher-event-loop-46" daemon [_thread_blocked, id=39531, stack(0x00007f1c99fe0000,0x00007f1c9a0e1000)]
+  0x00007f1afc144800 JavaThread "dispatcher-event-loop-45" daemon [_thread_blocked, id=39530, stack(0x00007f1c9a0e1000,0x00007f1c9a1e2000)]
+  0x00007f1afc142800 JavaThread "dispatcher-event-loop-44" daemon [_thread_blocked, id=39529, stack(0x00007f1c9a1e2000,0x00007f1c9a2e3000)]
+  0x00007f1afc140800 JavaThread "dispatcher-event-loop-43" daemon [_thread_blocked, id=39528, stack(0x00007f1c9a2e3000,0x00007f1c9a3e4000)]
+  0x00007f1afc13f000 JavaThread "dispatcher-event-loop-42" daemon [_thread_blocked, id=39527, stack(0x00007f1c9a3e4000,0x00007f1c9a4e5000)]
+  0x00007f1afc13d000 JavaThread "dispatcher-event-loop-41" daemon [_thread_blocked, id=39526, stack(0x00007f1c9a4e5000,0x00007f1c9a5e6000)]
+  0x00007f1afc13b800 JavaThread "dispatcher-event-loop-40" daemon [_thread_blocked, id=39525, stack(0x00007f1c9a5e6000,0x00007f1c9a6e7000)]
+  0x00007f1afc139800 JavaThread "dispatcher-event-loop-39" daemon [_thread_blocked, id=39524, stack(0x00007f1c9a6e7000,0x00007f1c9a7e8000)]
+  0x00007f1afc138000 JavaThread "dispatcher-event-loop-38" daemon [_thread_blocked, id=39523, stack(0x00007f1c9a7e8000,0x00007f1c9a8e9000)]
+  0x00007f1afc136000 JavaThread "dispatcher-event-loop-37" daemon [_thread_blocked, id=39522, stack(0x00007f1c9a8e9000,0x00007f1c9a9ea000)]
+  0x00007f1afc134000 JavaThread "dispatcher-event-loop-36" daemon [_thread_blocked, id=39521, stack(0x00007f1c9a9ea000,0x00007f1c9aaeb000)]
+  0x00007f1afc132800 JavaThread "dispatcher-event-loop-35" daemon [_thread_blocked, id=39520, stack(0x00007f1c9aaeb000,0x00007f1c9abec000)]
+  0x00007f1afc130800 JavaThread "dispatcher-event-loop-34" daemon [_thread_blocked, id=39519, stack(0x00007f1c9abec000,0x00007f1c9aced000)]
+  0x00007f1afc12f000 JavaThread "dispatcher-event-loop-33" daemon [_thread_blocked, id=39518, stack(0x00007f1c9aced000,0x00007f1c9adee000)]
+  0x00007f1afc12d000 JavaThread "dispatcher-event-loop-32" daemon [_thread_blocked, id=39517, stack(0x00007f1c9adee000,0x00007f1c9aeef000)]
+  0x00007f1afc12b800 JavaThread "dispatcher-event-loop-31" daemon [_thread_blocked, id=39516, stack(0x00007f1c9aeef000,0x00007f1c9aff0000)]
+  0x00007f1afc129800 JavaThread "dispatcher-event-loop-30" daemon [_thread_blocked, id=39515, stack(0x00007f1c9aff0000,0x00007f1c9b0f1000)]
+  0x00007f1afc127800 JavaThread "dispatcher-event-loop-29" daemon [_thread_blocked, id=39514, stack(0x00007f1c9b0f1000,0x00007f1c9b1f2000)]
+  0x00007f1afc126000 JavaThread "dispatcher-event-loop-28" daemon [_thread_blocked, id=39513, stack(0x00007f1c9b1f2000,0x00007f1c9b2f3000)]
+  0x00007f1afc124000 JavaThread "dispatcher-event-loop-27" daemon [_thread_blocked, id=39512, stack(0x00007f1c9b2f3000,0x00007f1c9b3f4000)]
+  0x00007f1afc122800 JavaThread "dispatcher-event-loop-26" daemon [_thread_blocked, id=39511, stack(0x00007f1c9b3f4000,0x00007f1c9b4f5000)]
+  0x00007f1afc120800 JavaThread "dispatcher-event-loop-25" daemon [_thread_blocked, id=39510, stack(0x00007f1c9b4f5000,0x00007f1c9b5f6000)]
+  0x00007f1afc11f000 JavaThread "dispatcher-event-loop-24" daemon [_thread_blocked, id=39509, stack(0x00007f1c9b5f6000,0x00007f1c9b6f7000)]
+  0x00007f1afc11d000 JavaThread "dispatcher-event-loop-23" daemon [_thread_blocked, id=39508, stack(0x00007f1c9b6f7000,0x00007f1c9b7f8000)]
+  0x00007f1afc11b800 JavaThread "dispatcher-event-loop-22" daemon [_thread_blocked, id=39507, stack(0x00007f1c9b7f8000,0x00007f1c9b8f9000)]
+  0x00007f1afc119800 JavaThread "dispatcher-event-loop-21" daemon [_thread_blocked, id=39506, stack(0x00007f1c9b8f9000,0x00007f1c9b9fa000)]
+  0x00007f1afc117800 JavaThread "dispatcher-event-loop-20" daemon [_thread_blocked, id=39505, stack(0x00007f1c9b9fa000,0x00007f1c9bafb000)]
+  0x00007f1afc116000 JavaThread "dispatcher-event-loop-19" daemon [_thread_blocked, id=39504, stack(0x00007f1c9bafb000,0x00007f1c9bbfc000)]
+  0x00007f1afc114000 JavaThread "dispatcher-event-loop-18" daemon [_thread_blocked, id=39503, stack(0x00007f1c9bbfc000,0x00007f1c9bcfd000)]
+  0x00007f1afc112800 JavaThread "dispatcher-event-loop-17" daemon [_thread_blocked, id=39502, stack(0x00007f1c9bcfd000,0x00007f1c9bdfe000)]
+  0x00007f1afc110800 JavaThread "dispatcher-event-loop-16" daemon [_thread_blocked, id=39501, stack(0x00007f1c9bdfe000,0x00007f1c9beff000)]
+  0x00007f1afc10f000 JavaThread "dispatcher-event-loop-15" daemon [_thread_blocked, id=39500, stack(0x00007f1c9beff000,0x00007f1c9c000000)]
+  0x00007f1afc10d000 JavaThread "dispatcher-event-loop-14" daemon [_thread_blocked, id=39499, stack(0x00007f1ca009a000,0x00007f1ca019b000)]
+  0x00007f1afc10b000 JavaThread "dispatcher-event-loop-13" daemon [_thread_blocked, id=39498, stack(0x00007f1ca019b000,0x00007f1ca029c000)]
+  0x00007f1afc109800 JavaThread "dispatcher-event-loop-12" daemon [_thread_blocked, id=39497, stack(0x00007f1ca029c000,0x00007f1ca039d000)]
+  0x00007f1afc107800 JavaThread "dispatcher-event-loop-11" daemon [_thread_blocked, id=39496, stack(0x00007f1ca039d000,0x00007f1ca049e000)]
+  0x00007f1afc106000 JavaThread "dispatcher-event-loop-10" daemon [_thread_blocked, id=39495, stack(0x00007f1ca049e000,0x00007f1ca059f000)]
+  0x00007f1afc104000 JavaThread "dispatcher-event-loop-9" daemon [_thread_blocked, id=39494, stack(0x00007f1ca059f000,0x00007f1ca06a0000)]
+  0x00007f1afc102800 JavaThread "dispatcher-event-loop-8" daemon [_thread_blocked, id=39493, stack(0x00007f1ca06a0000,0x00007f1ca07a1000)]
+  0x00007f1afc100800 JavaThread "dispatcher-event-loop-7" daemon [_thread_blocked, id=39492, stack(0x00007f1ca07a1000,0x00007f1ca08a2000)]
+  0x00007f1afc0ff000 JavaThread "dispatcher-event-loop-6" daemon [_thread_blocked, id=39491, stack(0x00007f1ca08a2000,0x00007f1ca09a3000)]
+  0x00007f1afc0fd000 JavaThread "dispatcher-event-loop-5" daemon [_thread_blocked, id=39490, stack(0x00007f1ca09a3000,0x00007f1ca0aa4000)]
+  0x00007f1afc0fb000 JavaThread "dispatcher-event-loop-4" daemon [_thread_blocked, id=39489, stack(0x00007f1ca0aa4000,0x00007f1ca0ba5000)]
+  0x00007f1afc0f9800 JavaThread "dispatcher-event-loop-3" daemon [_thread_blocked, id=39488, stack(0x00007f1ca0ba5000,0x00007f1ca0ca6000)]
+  0x00007f1afc0f7800 JavaThread "dispatcher-event-loop-2" daemon [_thread_blocked, id=39487, stack(0x00007f1ca0ca6000,0x00007f1ca0da7000)]
+  0x00007f1afc0f6000 JavaThread "dispatcher-event-loop-1" daemon [_thread_blocked, id=39486, stack(0x00007f1ca0da7000,0x00007f1ca0ea8000)]
+  0x00007f1afc0f5000 JavaThread "dispatcher-event-loop-0" daemon [_thread_blocked, id=39485, stack(0x00007f1ca0ea8000,0x00007f1ca0fa9000)]
+  0x00007f1af8008800 JavaThread "Thread-4" [_thread_in_native, id=39484, stack(0x00007f1ca11a9000,0x00007f1ca12aa000)]
+  0x00007f1cd0cf9000 JavaThread "Thread-3" [_thread_in_native, id=39483, stack(0x00007f1ca14bf000,0x00007f1ca15c0000)]
+  0x00007f1cd0cef000 JavaThread "pool-1-thread-1" [_thread_blocked, id=39482, stack(0x00007f1ca19c2000,0x00007f1ca1ac3000)]
+  0x00007f1cd014d000 JavaThread "Service Thread" daemon [_thread_blocked, id=39477, stack(0x00007f1ca38f9000,0x00007f1ca39fa000)]
+  0x00007f1cd0141800 JavaThread "C1 CompilerThread17" daemon [_thread_blocked, id=39476, stack(0x00007f1ca39fa000,0x00007f1ca3afb000)]
+  0x00007f1cd0140000 JavaThread "C1 CompilerThread16" daemon [_thread_blocked, id=39475, stack(0x00007f1ca3afb000,0x00007f1ca3bfc000)]
+  0x00007f1cd013d800 JavaThread "C1 CompilerThread15" daemon [_thread_blocked, id=39474, stack(0x00007f1ca3bfc000,0x00007f1ca3cfd000)]
+  0x00007f1cd013b800 JavaThread "C1 CompilerThread14" daemon [_thread_blocked, id=39473, stack(0x00007f1ca3cfd000,0x00007f1ca3dfe000)]
+  0x00007f1cd0139000 JavaThread "C1 CompilerThread13" daemon [_thread_blocked, id=39472, stack(0x00007f1ca3dfe000,0x00007f1ca3eff000)]
+  0x00007f1cd0137000 JavaThread "C1 CompilerThread12" daemon [_thread_blocked, id=39471, stack(0x00007f1ca3eff000,0x00007f1ca4000000)]
+  0x00007f1cd0134800 JavaThread "C2 CompilerThread11" daemon [_thread_blocked, id=39470, stack(0x00007f1ca80c1000,0x00007f1ca81c2000)]
+  0x00007f1cd0132800 JavaThread "C2 CompilerThread10" daemon [_thread_blocked, id=39469, stack(0x00007f1ca81c2000,0x00007f1ca82c3000)]
+  0x00007f1cd0130800 JavaThread "C2 CompilerThread9" daemon [_thread_blocked, id=39468, stack(0x00007f1ca82c3000,0x00007f1ca83c4000)]
+  0x00007f1cd012e800 JavaThread "C2 CompilerThread8" daemon [_thread_blocked, id=39467, stack(0x00007f1ca83c4000,0x00007f1ca84c5000)]
+  0x00007f1cd012c000 JavaThread "C2 CompilerThread7" daemon [_thread_blocked, id=39466, stack(0x00007f1ca84c5000,0x00007f1ca85c6000)]
+  0x00007f1cd012a000 JavaThread "C2 CompilerThread6" daemon [_thread_blocked, id=39465, stack(0x00007f1ca85c6000,0x00007f1ca86c7000)]
+  0x00007f1cd0128000 JavaThread "C2 CompilerThread5" daemon [_thread_blocked, id=39464, stack(0x00007f1ca86c7000,0x00007f1ca87c8000)]
+  0x00007f1cd011d800 JavaThread "C2 CompilerThread4" daemon [_thread_blocked, id=39463, stack(0x00007f1ca87c8000,0x00007f1ca88c9000)]
+  0x00007f1cd011b800 JavaThread "C2 CompilerThread3" daemon [_thread_blocked, id=39462, stack(0x00007f1ca88c9000,0x00007f1ca89ca000)]
+  0x00007f1cd0119800 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=39461, stack(0x00007f1ca89ca000,0x00007f1ca8acb000)]
+  0x00007f1cd0117800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=39460, stack(0x00007f1ca8acb000,0x00007f1ca8bcc000)]
+  0x00007f1cd0114800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=39459, stack(0x00007f1ca8bcc000,0x00007f1ca8ccd000)]
+  0x00007f1cd0113000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=39458, stack(0x00007f1ca8ccd000,0x00007f1ca8dce000)]
+  0x00007f1cd00e0000 JavaThread "Finalizer" daemon [_thread_blocked, id=39457, stack(0x00007f1ca8dce000,0x00007f1ca8ecf000)]
+  0x00007f1cd00db800 JavaThread "Reference Handler" daemon [_thread_blocked, id=39456, stack(0x00007f1ca8ecf000,0x00007f1ca8fd0000)]
+  0x00007f1cd0014000 JavaThread "main" [_thread_in_native, id=39411, stack(0x00007f1cd9c03000,0x00007f1cd9d04000)]
+
+Other Threads:
+  0x00007f1cd00d3800 VMThread [stack: 0x00007f1ca8fd0000,0x00007f1ca90d1000] [id=39455]
+  0x00007f1cd014f800 WatcherThread [stack: 0x00007f1ca37f8000,0x00007f1ca38f9000] [id=39478]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 305664K, used 130838K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 49% used [0x00000000eab00000,0x00000000f2ac5aa8,0x00000000fab00000)
+  from space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 8279K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0815c88,0x00000000e1900000)
+ Metaspace       used 37067K, capacity 37290K, committed 37592K, reserved 1081344K
+  class space    used 5210K, capacity 5293K, committed 5376K, reserved 1048576K
+
+Card table byte_map: [0x00007f1cd641d000,0x00007f1cd661e000] byte_map_base: 0x00007f1cd5e1d000
+
+Marking Bits: (ParMarkBitMap*) 0x00007f1cd816ba20
+ Begin Bits: [0x00007f1cba000000, 0x00007f1cbb000000)
+ End Bits:   [0x00007f1cbb000000, 0x00007f1cbc000000)
+
+Polling page: 0x00007f1cd9d14000
+
+CodeCache: size=245760Kb used=10225Kb max_used=10546Kb free=235534Kb
+ bounds [0x00007f1cc1000000, 0x00007f1cc1a60000, 0x00007f1cd0000000]
+ total_blobs=3157 nmethods=2680 adapters=385
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 2250.368 Thread 0x00007f1cd0137000 2986       3       scala.Array$$anon$2::apply (11 bytes)
+Event: 2250.368 Thread 0x00007f1cd0139000 nmethod 2984 0x00007f1cc1576510 code [0x00007f1cc1576680, 0x00007f1cc1576850]
+Event: 2250.369 Thread 0x00007f1cd0137000 nmethod 2986 0x00007f1cc1576110 code [0x00007f1cc1576280, 0x00007f1cc1576488]
+Event: 2250.369 Thread 0x00007f1cd013b800 nmethod 2985 0x00007f1cc1575bd0 code [0x00007f1cc1575d40, 0x00007f1cc1576028]
+Event: 2290.368 Thread 0x00007f1cd0117800 2987       4       scala.collection.convert.WrapAsScala$class::asScalaIterator (34 bytes)
+Event: 2290.369 Thread 0x00007f1cd0117800 nmethod 2987 0x00007f1cc1574350 code [0x00007f1cc15744c0, 0x00007f1cc15745b8]
+Event: 2328.410 Thread 0x00007f1cd0137000 2988       3       scala.collection.IndexedSeqOptimized$class::foldLeft (14 bytes)
+Event: 2328.410 Thread 0x00007f1cd013b800 2989   !   3       java.util.concurrent.FutureTask::run (126 bytes)
+Event: 2359.678 Thread 0x00007f1cd0141800 2990       3       scala.collection.mutable.ArrayBuilder$ofRef::mkArray (41 bytes)
+Event: 2396.476 Thread 0x00007f1cd013d800 2991       3       java.util.concurrent.TimeUnit$4::convert (6 bytes)
+
+GC Heap History (10 events):
+Event: 2.688 GC heap before
+{Heap before GC invocations=4 (full 1):
+ PSYoungGen      total 305664K, used 35892K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 6% used [0x00000000eab00000,0x00000000ebbeb970,0x00000000fab00000)
+  from space 43520K, 42% used [0x00000000fd580000,0x00000000fe7a17f0,0x0000000100000000)
+  to   space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+ ParOldGen       total 437760K, used 15366K [0x00000000c0000000, 0x00000000dab80000, 0x00000000eab00000)
+  object space 437760K, 3% used [0x00000000c0000000,0x00000000c0f01990,0x00000000dab80000)
+ Metaspace       used 35011K, capacity 35202K, committed 35416K, reserved 1079296K
+  class space    used 4907K, capacity 4981K, committed 4992K, reserved 1048576K
+Event: 2.699 GC heap after
+Heap after GC invocations=4 (full 1):
+ PSYoungGen      total 305664K, used 6051K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 13% used [0x00000000fab00000,0x00000000fb0e8c50,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 437760K, used 15374K [0x00000000c0000000, 0x00000000dab80000, 0x00000000eab00000)
+  object space 437760K, 3% used [0x00000000c0000000,0x00000000c0f03990,0x00000000dab80000)
+ Metaspace       used 35011K, capacity 35202K, committed 35416K, reserved 1079296K
+  class space    used 4907K, capacity 4981K, committed 4992K, reserved 1048576K
+}
+Event: 2.699 GC heap before
+{Heap before GC invocations=5 (full 2):
+ PSYoungGen      total 305664K, used 6051K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 13% used [0x00000000fab00000,0x00000000fb0e8c50,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 437760K, used 15374K [0x00000000c0000000, 0x00000000dab80000, 0x00000000eab00000)
+  object space 437760K, 3% used [0x00000000c0000000,0x00000000c0f03990,0x00000000dab80000)
+ Metaspace       used 35011K, capacity 35202K, committed 35416K, reserved 1079296K
+  class space    used 4907K, capacity 4981K, committed 4992K, reserved 1048576K
+Event: 2.728 GC heap after
+Heap after GC invocations=5 (full 2):
+ PSYoungGen      total 305664K, used 0K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 9465K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c093e788,0x00000000e1900000)
+ Metaspace       used 35011K, capacity 35202K, committed 35416K, reserved 1079296K
+  class space    used 4907K, capacity 4981K, committed 4992K, reserved 1048576K
+}
+Event: 200.403 GC heap before
+{Heap before GC invocations=6 (full 2):
+ PSYoungGen      total 305664K, used 262144K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 100% used [0x00000000eab00000,0x00000000fab00000,0x00000000fab00000)
+  from space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 9465K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c093e788,0x00000000e1900000)
+ Metaspace       used 36791K, capacity 36994K, committed 37336K, reserved 1081344K
+  class space    used 5212K, capacity 5301K, committed 5376K, reserved 1048576K
+Event: 200.409 GC heap after
+Heap after GC invocations=6 (full 2):
+ PSYoungGen      total 305664K, used 2254K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 5% used [0x00000000fd580000,0x00000000fd7b3800,0x0000000100000000)
+  to   space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+ ParOldGen       total 549888K, used 9473K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0940788,0x00000000e1900000)
+ Metaspace       used 36791K, capacity 36994K, committed 37336K, reserved 1081344K
+  class space    used 5212K, capacity 5301K, committed 5376K, reserved 1048576K
+}
+Event: 1802.246 GC heap before
+{Heap before GC invocations=7 (full 2):
+ PSYoungGen      total 305664K, used 236110K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 89% used [0x00000000eab00000,0x00000000f8f600a0,0x00000000fab00000)
+  from space 43520K, 5% used [0x00000000fd580000,0x00000000fd7b3800,0x0000000100000000)
+  to   space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+ ParOldGen       total 549888K, used 9473K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0940788,0x00000000e1900000)
+ Metaspace       used 37047K, capacity 37250K, committed 37592K, reserved 1081344K
+  class space    used 5215K, capacity 5301K, committed 5376K, reserved 1048576K
+Event: 1802.250 GC heap after
+Heap after GC invocations=7 (full 2):
+ PSYoungGen      total 305664K, used 1120K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 2% used [0x00000000fab00000,0x00000000fac18000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 9481K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0942788,0x00000000e1900000)
+ Metaspace       used 37047K, capacity 37250K, committed 37592K, reserved 1081344K
+  class space    used 5215K, capacity 5301K, committed 5376K, reserved 1048576K
+}
+Event: 1802.250 GC heap before
+{Heap before GC invocations=8 (full 3):
+ PSYoungGen      total 305664K, used 1120K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 2% used [0x00000000fab00000,0x00000000fac18000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 9481K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0942788,0x00000000e1900000)
+ Metaspace       used 37047K, capacity 37250K, committed 37592K, reserved 1081344K
+  class space    used 5215K, capacity 5301K, committed 5376K, reserved 1048576K
+Event: 1802.317 GC heap after
+Heap after GC invocations=8 (full 3):
+ PSYoungGen      total 305664K, used 0K [0x00000000eab00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 262144K, 0% used [0x00000000eab00000,0x00000000eab00000,0x00000000fab00000)
+  from space 43520K, 0% used [0x00000000fab00000,0x00000000fab00000,0x00000000fd580000)
+  to   space 43520K, 0% used [0x00000000fd580000,0x00000000fd580000,0x0000000100000000)
+ ParOldGen       total 549888K, used 8279K [0x00000000c0000000, 0x00000000e1900000, 0x00000000eab00000)
+  object space 549888K, 1% used [0x00000000c0000000,0x00000000c0815c88,0x00000000e1900000)
+ Metaspace       used 37032K, capacity 37226K, committed 37592K, reserved 1081344K
+  class space    used 5210K, capacity 5293K, committed 5376K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 1.031 Thread 0x00007f1cd0014000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc16a6ef8 method=org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanContent()I @ 90
+Event: 1.039 Thread 0x00007f1cd0014000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc164b1bc method=org.apache.xerces.impl.XMLEntityScanner.scanQName(Lorg/apache/xerces/xni/QName;)Z @ 68
+Event: 1.228 Thread 0x00007f1af8008800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc1557a18 method=java.lang.String.regionMatches(ZILjava/lang/String;II)Z @ 123
+Event: 1.401 Thread 0x00007f1af8008800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc16d09cc method=sun.misc.URLClassPath$JarLoader.getResource(Ljava/lang/String;ZLjava/util/Set;)Lsun/misc/Resource; @ 17
+Event: 1.604 Thread 0x00007f1cd00e0000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc16a07bc method=java.lang.ref.ReferenceQueue.poll()Ljava/lang/ref/Reference; @ 4
+Event: 1.873 Thread 0x00007f1af8008800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc17517a4 method=java.util.jar.Manifest$FastInputStream.readLine([BII)I @ 87
+Event: 2.266 Thread 0x00007f1afc8e3000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc17651d8 method=java.util.WeakHashMap.remove(Ljava/lang/Object;)Ljava/lang/Object; @ 94
+Event: 2.728 Thread 0x00007f1cd00e0000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc1916c58 method=java.lang.ref.Finalizer.remove()V @ 10
+Event: 2.729 Thread 0x00007f1cd00e0000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc19179c4 method=java.lang.ref.Finalizer.remove()V @ 10
+Event: 2.729 Thread 0x00007f1cd00e0000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f1cc191ad8c method=java.lang.ref.Finalizer.remove()V @ 10
+
+Internal exceptions (10 events):
+Event: 0.445 Thread 0x00007f1cd0014000 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/AppenderSkeletonCustomizer> (0x00000000ee8f5008) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/classfile/systemDictionary.cpp, lin
+Event: 0.447 Thread 0x00007f1cd0014000 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/WriterAppenderCustomizer> (0x00000000ee937d08) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/classfile/systemDictionary.cpp, line 
+Event: 0.449 Thread 0x00007f1cd0014000 Exception <a 'java/lang/ClassNotFoundException': org/apache/log4j/ConsoleAppenderCustomizer> (0x00000000ee96b3b8) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/classfile/systemDictionary.cpp, line
+Event: 0.970 Thread 0x00007f1cd0014000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f2a82d80) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 0.972 Thread 0x00007f1cd0014000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x00000000f2a90440) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/prims/methodHandles.cpp, line 1146]
+Event: 0.999 Thread 0x00007f1cd0014000 Exception <a 'java/lang/reflect/InvocationTargetException'> (0x00000000f2b87948) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/runtime/reflection.cpp, line 1092]
+Event: 1.399 Thread 0x00007f1af8008800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f6a01e28) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.399 Thread 0x00007f1af8008800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f6a03270) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.401 Thread 0x00007f1af8008800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f6a733a8) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 1.401 Thread 0x00007f1af8008800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000f6a743c0) thrown at [/export/home/tester/jenkins/workspace/zulu8-silver-build-rhel64/zulu-src/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+
+Events (10 events):
+Event: 2101.941 Thread 0x00007f1b00001000 Thread exited: 0x00007f1b00001000
+Event: 2161.942 Thread 0x00007f1b00001000 Thread added: 0x00007f1b00001000
+Event: 2161.942 Thread 0x00007f19a0001000 Thread exited: 0x00007f19a0001000
+Event: 2221.942 Thread 0x00007f19a0001000 Thread added: 0x00007f19a0001000
+Event: 2221.942 Thread 0x00007f1b00001000 Thread exited: 0x00007f1b00001000
+Event: 2250.369 Thread 0x00007f1cd013b800 flushing nmethod 0x00007f1cc1530bd0
+Event: 2281.943 Thread 0x00007f1b00001000 Thread added: 0x00007f1b00001000
+Event: 2281.943 Thread 0x00007f19a0001000 Thread exited: 0x00007f19a0001000
+Event: 2347.641 Thread 0x00007f19a0001000 Thread added: 0x00007f19a0001000
+Event: 2353.043 Thread 0x00007f1b00001000 Thread exited: 0x00007f1b00001000
+
+
+Dynamic libraries:
+003ff000-00400000 rw-p 00000000 ca:01 1855417                            /home/ec2-user/anaconda3/envs/python3/bin/java
+00400000-00401000 r-xp 00001000 ca:01 1855417                            /home/ec2-user/anaconda3/envs/python3/bin/java
+00600000-00601000 rw-p 00001000 ca:01 1855417                            /home/ec2-user/anaconda3/envs/python3/bin/java
+00aca000-00aeb000 rw-p 00000000 00:00 0                                  [heap]
+c0000000-e1900000 rw-p 00000000 00:00 0 
+e1900000-eab00000 ---p 00000000 00:00 0 
+eab00000-100540000 rw-p 00000000 00:00 0 
+100540000-140000000 ---p 00000000 00:00 0 
+7f1978000000-7f1978021000 rw-p 00000000 00:00 0 
+7f1978021000-7f197c000000 ---p 00000000 00:00 0 
+7f197c000000-7f197c021000 rw-p 00000000 00:00 0 
+7f197c021000-7f1980000000 ---p 00000000 00:00 0 
+7f1980000000-7f1980021000 rw-p 00000000 00:00 0 
+7f1980021000-7f1984000000 ---p 00000000 00:00 0 
+7f1984000000-7f1984021000 rw-p 00000000 00:00 0 
+7f1984021000-7f1988000000 ---p 00000000 00:00 0 
+7f1988000000-7f1988021000 rw-p 00000000 00:00 0 
+7f1988021000-7f198c000000 ---p 00000000 00:00 0 
+7f198c000000-7f198c021000 rw-p 00000000 00:00 0 
+7f198c021000-7f1990000000 ---p 00000000 00:00 0 
+7f1990000000-7f1990021000 rw-p 00000000 00:00 0 
+7f1990021000-7f1994000000 ---p 00000000 00:00 0 
+7f1994000000-7f1994021000 rw-p 00000000 00:00 0 
+7f1994021000-7f1998000000 ---p 00000000 00:00 0 
+7f1998000000-7f1998021000 rw-p 00000000 00:00 0 
+7f1998021000-7f199c000000 ---p 00000000 00:00 0 
+7f199c000000-7f199c021000 rw-p 00000000 00:00 0 
+7f199c021000-7f19a0000000 ---p 00000000 00:00 0 
+7f19a0000000-7f19a0021000 rw-p 00000000 00:00 0 
+7f19a0021000-7f19a4000000 ---p 00000000 00:00 0 
+7f19a4000000-7f19a4021000 rw-p 00000000 00:00 0 
+7f19a4021000-7f19a8000000 ---p 00000000 00:00 0 
+7f19a8000000-7f19a8021000 rw-p 00000000 00:00 0 
+7f19a8021000-7f19ac000000 ---p 00000000 00:00 0 
+7f19ac000000-7f19ac021000 rw-p 00000000 00:00 0 
+7f19ac021000-7f19b0000000 ---p 00000000 00:00 0 
+7f19b0000000-7f19b0021000 rw-p 00000000 00:00 0 
+7f19b0021000-7f19b4000000 ---p 00000000 00:00 0 
+7f19b4000000-7f19b4021000 rw-p 00000000 00:00 0 
+7f19b4021000-7f19b8000000 ---p 00000000 00:00 0 
+7f19b8000000-7f19b8021000 rw-p 00000000 00:00 0 
+7f19b8021000-7f19bc000000 ---p 00000000 00:00 0 
+7f19bc000000-7f19bc021000 rw-p 00000000 00:00 0 
+7f19bc021000-7f19c0000000 ---p 00000000 00:00 0 
+7f19c0000000-7f19c0021000 rw-p 00000000 00:00 0 
+7f19c0021000-7f19c4000000 ---p 00000000 00:00 0 
+7f19c4000000-7f19c4021000 rw-p 00000000 00:00 0 
+7f19c4021000-7f19c8000000 ---p 00000000 00:00 0 
+7f19c8000000-7f19c8021000 rw-p 00000000 00:00 0 
+7f19c8021000-7f19cc000000 ---p 00000000 00:00 0 
+7f19cc000000-7f19cc021000 rw-p 00000000 00:00 0 
+7f19cc021000-7f19d0000000 ---p 00000000 00:00 0 
+7f19d0000000-7f19d0021000 rw-p 00000000 00:00 0 
+7f19d0021000-7f19d4000000 ---p 00000000 00:00 0 
+7f19d4000000-7f19d4021000 rw-p 00000000 00:00 0 
+7f19d4021000-7f19d8000000 ---p 00000000 00:00 0 
+7f19d8000000-7f19d8021000 rw-p 00000000 00:00 0 
+7f19d8021000-7f19dc000000 ---p 00000000 00:00 0 
+7f19dc000000-7f19dc021000 rw-p 00000000 00:00 0 
+7f19dc021000-7f19e0000000 ---p 00000000 00:00 0 
+7f19e0000000-7f19e0021000 rw-p 00000000 00:00 0 
+7f19e0021000-7f19e4000000 ---p 00000000 00:00 0 
+7f19e4000000-7f19e4021000 rw-p 00000000 00:00 0 
+7f19e4021000-7f19e8000000 ---p 00000000 00:00 0 
+7f19e8000000-7f19e8021000 rw-p 00000000 00:00 0 
+7f19e8021000-7f19ec000000 ---p 00000000 00:00 0 
+7f19ec000000-7f19ec021000 rw-p 00000000 00:00 0 
+7f19ec021000-7f19f0000000 ---p 00000000 00:00 0 
+7f19f0000000-7f19f0021000 rw-p 00000000 00:00 0 
+7f19f0021000-7f19f4000000 ---p 00000000 00:00 0 
+7f19f4000000-7f19f4021000 rw-p 00000000 00:00 0 
+7f19f4021000-7f19f8000000 ---p 00000000 00:00 0 
+7f19f8000000-7f19f8021000 rw-p 00000000 00:00 0 
+7f19f8021000-7f19fc000000 ---p 00000000 00:00 0 
+7f19fc000000-7f19fc021000 rw-p 00000000 00:00 0 
+7f19fc021000-7f1a00000000 ---p 00000000 00:00 0 
+7f1a00000000-7f1a00021000 rw-p 00000000 00:00 0 
+7f1a00021000-7f1a04000000 ---p 00000000 00:00 0 
+7f1a04000000-7f1a04021000 rw-p 00000000 00:00 0 
+7f1a04021000-7f1a08000000 ---p 00000000 00:00 0 
+7f1a08000000-7f1a08021000 rw-p 00000000 00:00 0 
+7f1a08021000-7f1a0c000000 ---p 00000000 00:00 0 
+7f1a0c000000-7f1a0c021000 rw-p 00000000 00:00 0 
+7f1a0c021000-7f1a10000000 ---p 00000000 00:00 0 
+7f1a10000000-7f1a10021000 rw-p 00000000 00:00 0 
+7f1a10021000-7f1a14000000 ---p 00000000 00:00 0 
+7f1a14000000-7f1a14021000 rw-p 00000000 00:00 0 
+7f1a14021000-7f1a18000000 ---p 00000000 00:00 0 
+7f1a18000000-7f1a18021000 rw-p 00000000 00:00 0 
+7f1a18021000-7f1a1c000000 ---p 00000000 00:00 0 
+7f1a1c000000-7f1a1c021000 rw-p 00000000 00:00 0 
+7f1a1c021000-7f1a20000000 ---p 00000000 00:00 0 
+7f1a20000000-7f1a20021000 rw-p 00000000 00:00 0 
+7f1a20021000-7f1a24000000 ---p 00000000 00:00 0 
+7f1a24000000-7f1a24021000 rw-p 00000000 00:00 0 
+7f1a24021000-7f1a28000000 ---p 00000000 00:00 0 
+7f1a28000000-7f1a28021000 rw-p 00000000 00:00 0 
+7f1a28021000-7f1a2c000000 ---p 00000000 00:00 0 
+7f1a2c000000-7f1a2c021000 rw-p 00000000 00:00 0 
+7f1a2c021000-7f1a30000000 ---p 00000000 00:00 0 
+7f1a30000000-7f1a30021000 rw-p 00000000 00:00 0 
+7f1a30021000-7f1a34000000 ---p 00000000 00:00 0 
+7f1a34000000-7f1a34021000 rw-p 00000000 00:00 0 
+7f1a34021000-7f1a38000000 ---p 00000000 00:00 0 
+7f1a38000000-7f1a38021000 rw-p 00000000 00:00 0 
+7f1a38021000-7f1a3c000000 ---p 00000000 00:00 0 
+7f1a3c000000-7f1a3c021000 rw-p 00000000 00:00 0 
+7f1a3c021000-7f1a40000000 ---p 00000000 00:00 0 
+7f1a40000000-7f1a40021000 rw-p 00000000 00:00 0 
+7f1a40021000-7f1a44000000 ---p 00000000 00:00 0 
+7f1a44000000-7f1a44021000 rw-p 00000000 00:00 0 
+7f1a44021000-7f1a48000000 ---p 00000000 00:00 0 
+7f1a48000000-7f1a48021000 rw-p 00000000 00:00 0 
+7f1a48021000-7f1a4c000000 ---p 00000000 00:00 0 
+7f1a4c000000-7f1a4c021000 rw-p 00000000 00:00 0 
+7f1a4c021000-7f1a50000000 ---p 00000000 00:00 0 
+7f1a50000000-7f1a50021000 rw-p 00000000 00:00 0 
+7f1a50021000-7f1a54000000 ---p 00000000 00:00 0 
+7f1a54000000-7f1a54021000 rw-p 00000000 00:00 0 
+7f1a54021000-7f1a58000000 ---p 00000000 00:00 0 
+7f1a58000000-7f1a58021000 rw-p 00000000 00:00 0 
+7f1a58021000-7f1a5c000000 ---p 00000000 00:00 0 
+7f1a5c000000-7f1a5c021000 rw-p 00000000 00:00 0 
+7f1a5c021000-7f1a60000000 ---p 00000000 00:00 0 
+7f1a60000000-7f1a60021000 rw-p 00000000 00:00 0 
+7f1a60021000-7f1a64000000 ---p 00000000 00:00 0 
+7f1a64000000-7f1a64021000 rw-p 00000000 00:00 0 
+7f1a64021000-7f1a68000000 ---p 00000000 00:00 0 
+7f1a68000000-7f1a68021000 rw-p 00000000 00:00 0 
+7f1a68021000-7f1a6c000000 ---p 00000000 00:00 0 
+7f1a6c000000-7f1a6c021000 rw-p 00000000 00:00 0 
+7f1a6c021000-7f1a70000000 ---p 00000000 00:00 0 
+7f1a70000000-7f1a70021000 rw-p 00000000 00:00 0 
+7f1a70021000-7f1a74000000 ---p 00000000 00:00 0 
+7f1a74000000-7f1a74021000 rw-p 00000000 00:00 0 
+7f1a74021000-7f1a78000000 ---p 00000000 00:00 0 
+7f1a78000000-7f1a78021000 rw-p 00000000 00:00 0 
+7f1a78021000-7f1a7c000000 ---p 00000000 00:00 0 
+7f1a7c000000-7f1a7c021000 rw-p 00000000 00:00 0 
+7f1a7c021000-7f1a80000000 ---p 00000000 00:00 0 
+7f1a80000000-7f1a80021000 rw-p 00000000 00:00 0 
+7f1a80021000-7f1a84000000 ---p 00000000 00:00 0 
+7f1a84000000-7f1a84021000 rw-p 00000000 00:00 0 
+7f1a84021000-7f1a88000000 ---p 00000000 00:00 0 
+7f1a88000000-7f1a88021000 rw-p 00000000 00:00 0 
+7f1a88021000-7f1a8c000000 ---p 00000000 00:00 0 
+7f1a8c000000-7f1a8c021000 rw-p 00000000 00:00 0 
+7f1a8c021000-7f1a90000000 ---p 00000000 00:00 0 
+7f1a90000000-7f1a90021000 rw-p 00000000 00:00 0 
+7f1a90021000-7f1a94000000 ---p 00000000 00:00 0 
+7f1a94000000-7f1a94021000 rw-p 00000000 00:00 0 
+7f1a94021000-7f1a98000000 ---p 00000000 00:00 0 
+7f1a98000000-7f1a98021000 rw-p 00000000 00:00 0 
+7f1a98021000-7f1a9c000000 ---p 00000000 00:00 0 
+7f1a9c000000-7f1a9c021000 rw-p 00000000 00:00 0 
+7f1a9c021000-7f1aa0000000 ---p 00000000 00:00 0 
+7f1aa0000000-7f1aa0021000 rw-p 00000000 00:00 0 
+7f1aa0021000-7f1aa4000000 ---p 00000000 00:00 0 
+7f1aa4000000-7f1aa4021000 rw-p 00000000 00:00 0 
+7f1aa4021000-7f1aa8000000 ---p 00000000 00:00 0 
+7f1aa8000000-7f1aa8021000 rw-p 00000000 00:00 0 
+7f1aa8021000-7f1aac000000 ---p 00000000 00:00 0 
+7f1aac000000-7f1aac021000 rw-p 00000000 00:00 0 
+7f1aac021000-7f1ab0000000 ---p 00000000 00:00 0 
+7f1ab0000000-7f1ab0021000 rw-p 00000000 00:00 0 
+7f1ab0021000-7f1ab4000000 ---p 00000000 00:00 0 
+7f1ab4000000-7f1ab4021000 rw-p 00000000 00:00 0 
+7f1ab4021000-7f1ab8000000 ---p 00000000 00:00 0 
+7f1ab8000000-7f1ab8021000 rw-p 00000000 00:00 0 
+7f1ab8021000-7f1abc000000 ---p 00000000 00:00 0 
+7f1abc000000-7f1abc021000 rw-p 00000000 00:00 0 
+7f1abc021000-7f1ac0000000 ---p 00000000 00:00 0 
+7f1ac0000000-7f1ac0021000 rw-p 00000000 00:00 0 
+7f1ac0021000-7f1ac4000000 ---p 00000000 00:00 0 
+7f1ac4000000-7f1ac4021000 rw-p 00000000 00:00 0 
+7f1ac4021000-7f1ac8000000 ---p 00000000 00:00 0 
+7f1ac8000000-7f1ac8021000 rw-p 00000000 00:00 0 
+7f1ac8021000-7f1acc000000 ---p 00000000 00:00 0 
+7f1acc000000-7f1acc021000 rw-p 00000000 00:00 0 
+7f1acc021000-7f1ad0000000 ---p 00000000 00:00 0 
+7f1ad0000000-7f1ad0021000 rw-p 00000000 00:00 0 
+7f1ad0021000-7f1ad4000000 ---p 00000000 00:00 0 
+7f1ad4000000-7f1ad4021000 rw-p 00000000 00:00 0 
+7f1ad4021000-7f1ad8000000 ---p 00000000 00:00 0 
+7f1ad8000000-7f1ad8021000 rw-p 00000000 00:00 0 
+7f1ad8021000-7f1adc000000 ---p 00000000 00:00 0 
+7f1adc000000-7f1adc021000 rw-p 00000000 00:00 0 
+7f1adc021000-7f1ae0000000 ---p 00000000 00:00 0 
+7f1ae0000000-7f1ae0021000 rw-p 00000000 00:00 0 
+7f1ae0021000-7f1ae4000000 ---p 00000000 00:00 0 
+7f1ae4000000-7f1ae4021000 rw-p 00000000 00:00 0 
+7f1ae4021000-7f1ae8000000 ---p 00000000 00:00 0 
+7f1ae8000000-7f1ae8021000 rw-p 00000000 00:00 0 
+7f1ae8021000-7f1aec000000 ---p 00000000 00:00 0 
+7f1aec000000-7f1aec021000 rw-p 00000000 00:00 0 
+7f1aec021000-7f1af0000000 ---p 00000000 00:00 0 
+7f1af0000000-7f1af0021000 rw-p 00000000 00:00 0 
+7f1af0021000-7f1af4000000 ---p 00000000 00:00 0 
+7f1af4000000-7f1af4021000 rw-p 00000000 00:00 0 
+7f1af4021000-7f1af8000000 ---p 00000000 00:00 0 
+7f1af8000000-7f1af8021000 rw-p 00000000 00:00 0 
+7f1af8021000-7f1afc000000 ---p 00000000 00:00 0 
+7f1afc000000-7f1afd184000 rw-p 00000000 00:00 0 
+7f1afd184000-7f1b00000000 ---p 00000000 00:00 0 
+7f1b00000000-7f1b0028c000 rw-p 00000000 00:00 0 
+7f1b0028c000-7f1b04000000 ---p 00000000 00:00 0 
+7f1b04000000-7f1b04021000 rw-p 00000000 00:00 0 
+7f1b04021000-7f1b08000000 ---p 00000000 00:00 0 
+7f1b08000000-7f1b08021000 rw-p 00000000 00:00 0 
+7f1b08021000-7f1b0c000000 ---p 00000000 00:00 0 
+7f1b0c000000-7f1b0c021000 rw-p 00000000 00:00 0 
+7f1b0c021000-7f1b10000000 ---p 00000000 00:00 0 
+7f1b10000000-7f1b101ce000 rw-p 00000000 00:00 0 
+7f1b101ce000-7f1b14000000 ---p 00000000 00:00 0 
+7f1b14000000-7f1b14291000 rw-p 00000000 00:00 0 
+7f1b14291000-7f1b18000000 ---p 00000000 00:00 0 
+7f1b18000000-7f1b18277000 rw-p 00000000 00:00 0 
+7f1b18277000-7f1b1c000000 ---p 00000000 00:00 0 
+7f1b1c000000-7f1b1c17c000 rw-p 00000000 00:00 0 
+7f1b1c17c000-7f1b20000000 ---p 00000000 00:00 0 
+7f1b20000000-7f1b201c9000 rw-p 00000000 00:00 0 
+7f1b201c9000-7f1b24000000 ---p 00000000 00:00 0 
+7f1b24000000-7f1b24238000 rw-p 00000000 00:00 0 
+7f1b24238000-7f1b28000000 ---p 00000000 00:00 0 
+7f1b28000000-7f1b280de000 rw-p 00000000 00:00 0 
+7f1b280de000-7f1b2c000000 ---p 00000000 00:00 0 
+7f1b2c000000-7f1b2d506000 rw-p 00000000 00:00 0 
+7f1b2d506000-7f1b30000000 ---p 00000000 00:00 0 
+7f1b30000000-7f1b3034c000 rw-p 00000000 00:00 0 
+7f1b3034c000-7f1b34000000 ---p 00000000 00:00 0 
+7f1b34000000-7f1b35a58000 rw-p 00000000 00:00 0 
+7f1b35a58000-7f1b38000000 ---p 00000000 00:00 0 
+7f1b38000000-7f1b38654000 rw-p 00000000 00:00 0 
+7f1b38654000-7f1b3c000000 ---p 00000000 00:00 0 
+7f1b3c000000-7f1b3c4e0000 rw-p 00000000 00:00 0 
+7f1b3c4e0000-7f1b40000000 ---p 00000000 00:00 0 
+7f1b40000000-7f1b4010f000 rw-p 00000000 00:00 0 
+7f1b4010f000-7f1b44000000 ---p 00000000 00:00 0 
+7f1b44000000-7f1b44263000 rw-p 00000000 00:00 0 
+7f1b44263000-7f1b48000000 ---p 00000000 00:00 0 
+7f1b48000000-7f1b481c1000 rw-p 00000000 00:00 0 
+7f1b481c1000-7f1b4c000000 ---p 00000000 00:00 0 
+7f1b4c000000-7f1b4c33c000 rw-p 00000000 00:00 0 
+7f1b4c33c000-7f1b50000000 ---p 00000000 00:00 0 
+7f1b50000000-7f1b502d2000 rw-p 00000000 00:00 0 
+7f1b502d2000-7f1b54000000 ---p 00000000 00:00 0 
+7f1b54000000-7f1b54123000 rw-p 00000000 00:00 0 
+7f1b54123000-7f1b58000000 ---p 00000000 00:00 0 
+7f1b58000000-7f1b58021000 rw-p 00000000 00:00 0 
+7f1b58021000-7f1b5c000000 ---p 00000000 00:00 0 
+7f1b5dad7000-7f1b64000000 r--p 00000000 ca:01 2733                       /usr/lib/locale/locale-archive
+7f1b64000000-7f1b64021000 rw-p 00000000 00:00 0 
+7f1b64021000-7f1b68000000 ---p 00000000 00:00 0 
+7f1b68000000-7f1b68021000 rw-p 00000000 00:00 0 
+7f1b68021000-7f1b6c000000 ---p 00000000 00:00 0 
+7f1b6c000000-7f1b6c021000 rw-p 00000000 00:00 0 
+7f1b6c021000-7f1b70000000 ---p 00000000 00:00 0 
+7f1b70000000-7f1b70132000 rw-p 00000000 00:00 0 
+7f1b70132000-7f1b74000000 ---p 00000000 00:00 0 
+7f1b74000000-7f1b74021000 rw-p 00000000 00:00 0 
+7f1b74021000-7f1b78000000 ---p 00000000 00:00 0 
+7f1b7c000000-7f1b7c021000 rw-p 00000000 00:00 0 
+7f1b7c021000-7f1b80000000 ---p 00000000 00:00 0 
+7f1b84000000-7f1b84021000 rw-p 00000000 00:00 0 
+7f1b84021000-7f1b88000000 ---p 00000000 00:00 0 
+7f1b8c000000-7f1b8c021000 rw-p 00000000 00:00 0 
+7f1b8c021000-7f1b90000000 ---p 00000000 00:00 0 
+7f1b94000000-7f1b94021000 rw-p 00000000 00:00 0 
+7f1b94021000-7f1b98000000 ---p 00000000 00:00 0 
+7f1b9c000000-7f1b9c021000 rw-p 00000000 00:00 0 
+7f1b9c021000-7f1ba0000000 ---p 00000000 00:00 0 
+7f1ba4000000-7f1ba4021000 rw-p 00000000 00:00 0 
+7f1ba4021000-7f1ba8000000 ---p 00000000 00:00 0 
+7f1bac000000-7f1bac021000 rw-p 00000000 00:00 0 
+7f1bac021000-7f1bb0000000 ---p 00000000 00:00 0 
+7f1bb4000000-7f1bb4021000 rw-p 00000000 00:00 0 
+7f1bb4021000-7f1bb8000000 ---p 00000000 00:00 0 
+7f1bbc000000-7f1bbc021000 rw-p 00000000 00:00 0 
+7f1bbc021000-7f1bc0000000 ---p 00000000 00:00 0 
+7f1bc4000000-7f1bc4021000 rw-p 00000000 00:00 0 
+7f1bc4021000-7f1bc8000000 ---p 00000000 00:00 0 
+7f1bcc000000-7f1bcc021000 rw-p 00000000 00:00 0 
+7f1bcc021000-7f1bd0000000 ---p 00000000 00:00 0 
+7f1bd4000000-7f1bd4021000 rw-p 00000000 00:00 0 
+7f1bd4021000-7f1bd8000000 ---p 00000000 00:00 0 
+7f1bdc000000-7f1bdc021000 rw-p 00000000 00:00 0 
+7f1bdc021000-7f1be0000000 ---p 00000000 00:00 0 
+7f1be4000000-7f1be4021000 rw-p 00000000 00:00 0 
+7f1be4021000-7f1be8000000 ---p 00000000 00:00 0 
+7f1bec000000-7f1bec021000 rw-p 00000000 00:00 0 
+7f1bec021000-7f1bf0000000 ---p 00000000 00:00 0 
+7f1bf4000000-7f1bf4021000 rw-p 00000000 00:00 0 
+7f1bf4021000-7f1bf8000000 ---p 00000000 00:00 0 
+7f1bfc000000-7f1bfc021000 rw-p 00000000 00:00 0 
+7f1bfc021000-7f1c00000000 ---p 00000000 00:00 0 
+7f1c04000000-7f1c04021000 rw-p 00000000 00:00 0 
+7f1c04021000-7f1c08000000 ---p 00000000 00:00 0 
+7f1c0c000000-7f1c0c021000 rw-p 00000000 00:00 0 
+7f1c0c021000-7f1c10000000 ---p 00000000 00:00 0 
+7f1c14000000-7f1c14021000 rw-p 00000000 00:00 0 
+7f1c14021000-7f1c18000000 ---p 00000000 00:00 0 
+7f1c1c000000-7f1c1c021000 rw-p 00000000 00:00 0 
+7f1c1c021000-7f1c20000000 ---p 00000000 00:00 0 
+7f1c24000000-7f1c24021000 rw-p 00000000 00:00 0 
+7f1c24021000-7f1c28000000 ---p 00000000 00:00 0 
+7f1c2c000000-7f1c2c021000 rw-p 00000000 00:00 0 
+7f1c2c021000-7f1c30000000 ---p 00000000 00:00 0 
+7f1c34000000-7f1c34021000 rw-p 00000000 00:00 0 
+7f1c34021000-7f1c38000000 ---p 00000000 00:00 0 
+7f1c3c000000-7f1c3c021000 rw-p 00000000 00:00 0 
+7f1c3c021000-7f1c40000000 ---p 00000000 00:00 0 
+7f1c44000000-7f1c44021000 rw-p 00000000 00:00 0 
+7f1c44021000-7f1c48000000 ---p 00000000 00:00 0 
+7f1c4c000000-7f1c4c021000 rw-p 00000000 00:00 0 
+7f1c4c021000-7f1c50000000 ---p 00000000 00:00 0 
+7f1c54000000-7f1c54021000 rw-p 00000000 00:00 0 
+7f1c54021000-7f1c58000000 ---p 00000000 00:00 0 
+7f1c5c000000-7f1c5c021000 rw-p 00000000 00:00 0 
+7f1c5c021000-7f1c60000000 ---p 00000000 00:00 0 
+7f1c64000000-7f1c64021000 rw-p 00000000 00:00 0 
+7f1c64021000-7f1c68000000 ---p 00000000 00:00 0 
+7f1c6c000000-7f1c6c021000 rw-p 00000000 00:00 0 
+7f1c6c021000-7f1c70000000 ---p 00000000 00:00 0 
+7f1c74000000-7f1c74021000 rw-p 00000000 00:00 0 
+7f1c74021000-7f1c78000000 ---p 00000000 00:00 0 
+7f1c7c000000-7f1c7c021000 rw-p 00000000 00:00 0 
+7f1c7c021000-7f1c80000000 ---p 00000000 00:00 0 
+7f1c84000000-7f1c84021000 rw-p 00000000 00:00 0 
+7f1c84021000-7f1c88000000 ---p 00000000 00:00 0 
+7f1c8c000000-7f1c8c021000 rw-p 00000000 00:00 0 
+7f1c8c021000-7f1c90000000 ---p 00000000 00:00 0 
+7f1c91eee000-7f1c91fec000 rw-p 00000000 00:00 0 
+7f1c91fec000-7f1c91fef000 ---p 00000000 00:00 0 
+7f1c91fef000-7f1c9226d000 rw-p 00000000 00:00 0 
+7f1c9226d000-7f1c922ed000 ---p 00000000 00:00 0 
+7f1c922ed000-7f1c924e3000 rw-p 00000000 00:00 0 
+7f1c924e3000-7f1c924ed000 ---p 00000000 00:00 0 
+7f1c924ed000-7f1c926ed000 rw-p 00000000 00:00 0 
+7f1c926ed000-7f1c926f0000 ---p 00000000 00:00 0 
+7f1c926f0000-7f1c927ee000 rw-p 00000000 00:00 0 
+7f1c927ee000-7f1c927f1000 ---p 00000000 00:00 0 
+7f1c927f1000-7f1c928ef000 rw-p 00000000 00:00 0 
+7f1c928ef000-7f1c928f2000 ---p 00000000 00:00 0 
+7f1c928f2000-7f1c929f0000 rw-p 00000000 00:00 0 
+7f1c929f0000-7f1c929f3000 ---p 00000000 00:00 0 
+7f1c929f3000-7f1c92af1000 rw-p 00000000 00:00 0 
+7f1c92af1000-7f1c92af4000 ---p 00000000 00:00 0 
+7f1c92af4000-7f1c92df2000 rw-p 00000000 00:00 0 
+7f1c92df2000-7f1c92df5000 ---p 00000000 00:00 0 
+7f1c92df5000-7f1c92ef3000 rw-p 00000000 00:00 0 
+7f1c92ef3000-7f1c92ef6000 ---p 00000000 00:00 0 
+7f1c92ef6000-7f1c92ff4000 rw-p 00000000 00:00 0 
+7f1c92ff4000-7f1c92ff7000 ---p 00000000 00:00 0 
+7f1c92ff7000-7f1c930f5000 rw-p 00000000 00:00 0 
+7f1c930f5000-7f1c930f8000 ---p 00000000 00:00 0 
+7f1c930f8000-7f1c931f6000 rw-p 00000000 00:00 0 
+7f1c931f6000-7f1c931f9000 ---p 00000000 00:00 0 
+7f1c931f9000-7f1c934f7000 rw-p 00000000 00:00 0 
+7f1c934f7000-7f1c934fa000 ---p 00000000 00:00 0 
+7f1c934fa000-7f1c935f8000 rw-p 00000000 00:00 0 
+7f1c935f8000-7f1c935fb000 ---p 00000000 00:00 0 
+7f1c935fb000-7f1c936f9000 rw-p 00000000 00:00 0 
+7f1c936f9000-7f1c936fc000 ---p 00000000 00:00 0 
+7f1c936fc000-7f1c937fa000 rw-p 00000000 00:00 0 
+7f1c937fa000-7f1c937fd000 ---p 00000000 00:00 0 
+7f1c937fd000-7f1c938fb000 rw-p 00000000 00:00 0 
+7f1c938fb000-7f1c938fe000 ---p 00000000 00:00 0 
+7f1c938fe000-7f1c939fc000 rw-p 00000000 00:00 0 
+7f1c939fc000-7f1c939ff000 ---p 00000000 00:00 0 
+7f1c939ff000-7f1c93afd000 rw-p 00000000 00:00 0 
+7f1c93afd000-7f1c93b00000 ---p 00000000 00:00 0 
+7f1c93b00000-7f1c93bfe000 rw-p 00000000 00:00 0 
+7f1c93bfe000-7f1c93c01000 ---p 00000000 00:00 0 
+7f1c93c01000-7f1c93cff000 rw-p 00000000 00:00 0 
+7f1c93cff000-7f1c93d02000 ---p 00000000 00:00 0 
+7f1c93d02000-7f1c94000000 rw-p 00000000 00:00 0 
+7f1c94000000-7f1c94021000 rw-p 00000000 00:00 0 
+7f1c94021000-7f1c98000000 ---p 00000000 00:00 0 
+7f1c980c3000-7f1c980c6000 ---p 00000000 00:00 0 
+7f1c980c6000-7f1c981c4000 rw-p 00000000 00:00 0 
+7f1c981c4000-7f1c981c7000 ---p 00000000 00:00 0 
+7f1c981c7000-7f1c982c5000 rw-p 00000000 00:00 0 
+7f1c982c5000-7f1c982c8000 ---p 00000000 00:00 0 
+7f1c982c8000-7f1c983c6000 rw-p 00000000 00:00 0 
+7f1c983c6000-7f1c983c9000 ---p 00000000 00:00 0 
+7f1c983c9000-7f1c984c7000 rw-p 00000000 00:00 0 
+7f1c984c7000-7f1c984ca000 ---p 00000000 00:00 0 
+7f1c984ca000-7f1c985c8000 rw-p 00000000 00:00 0 
+7f1c985c8000-7f1c985cb000 ---p 00000000 00:00 0 
+7f1c985cb000-7f1c986c9000 rw-p 00000000 00:00 0 
+7f1c986c9000-7f1c986cc000 ---p 00000000 00:00 0 
+7f1c986cc000-7f1c987ca000 rw-p 00000000 00:00 0 
+7f1c987ca000-7f1c987cd000 ---p 00000000 00:00 0 
+7f1c987cd000-7f1c988cb000 rw-p 00000000 00:00 0 
+7f1c988cb000-7f1c988ce000 ---p 00000000 00:00 0 
+7f1c988ce000-7f1c989cc000 rw-p 00000000 00:00 0 
+7f1c989cc000-7f1c989cf000 ---p 00000000 00:00 0 
+7f1c989cf000-7f1c98acd000 rw-p 00000000 00:00 0 
+7f1c98acd000-7f1c98ad0000 ---p 00000000 00:00 0 
+7f1c98ad0000-7f1c98bce000 rw-p 00000000 00:00 0 
+7f1c98bce000-7f1c98bd1000 ---p 00000000 00:00 0 
+7f1c98bd1000-7f1c98ecf000 rw-p 00000000 00:00 0 
+7f1c98ecf000-7f1c98ed2000 ---p 00000000 00:00 0 
+7f1c98ed2000-7f1c98fd0000 rw-p 00000000 00:00 0 
+7f1c98fd0000-7f1c98fd3000 ---p 00000000 00:00 0 
+7f1c98fd3000-7f1c990d1000 rw-p 00000000 00:00 0 
+7f1c990d1000-7f1c990d4000 ---p 00000000 00:00 0 
+7f1c990d4000-7f1c991d2000 rw-p 00000000 00:00 0 
+7f1c991d2000-7f1c991d5000 ---p 00000000 00:00 0 
+7f1c991d5000-7f1c992d3000 rw-p 00000000 00:00 0 
+7f1c992d3000-7f1c992d6000 ---p 00000000 00:00 0 
+7f1c992d6000-7f1c993d4000 rw-p 00000000 00:00 0 
+7f1c993d4000-7f1c993d7000 ---p 00000000 00:00 0 
+7f1c993d7000-7f1c994d5000 rw-p 00000000 00:00 0 
+7f1c994d5000-7f1c994d8000 ---p 00000000 00:00 0 
+7f1c994d8000-7f1c995d6000 rw-p 00000000 00:00 0 
+7f1c995d6000-7f1c995d9000 ---p 00000000 00:00 0 
+7f1c995d9000-7f1c996d7000 rw-p 00000000 00:00 0 
+7f1c996d7000-7f1c996da000 ---p 00000000 00:00 0 
+7f1c996da000-7f1c997d8000 rw-p 00000000 00:00 0 
+7f1c997d8000-7f1c997db000 ---p 00000000 00:00 0 
+7f1c997db000-7f1c998d9000 rw-p 00000000 00:00 0 
+7f1c998d9000-7f1c998dc000 ---p 00000000 00:00 0 
+7f1c998dc000-7f1c999da000 rw-p 00000000 00:00 0 
+7f1c999da000-7f1c999dd000 ---p 00000000 00:00 0 
+7f1c999dd000-7f1c99adb000 rw-p 00000000 00:00 0 
+7f1c99adb000-7f1c99ade000 ---p 00000000 00:00 0 
+7f1c99ade000-7f1c99bdc000 rw-p 00000000 00:00 0 
+7f1c99bdc000-7f1c99bdf000 ---p 00000000 00:00 0 
+7f1c99bdf000-7f1c99cdd000 rw-p 00000000 00:00 0 
+7f1c99cdd000-7f1c99ce0000 ---p 00000000 00:00 0 
+7f1c99ce0000-7f1c99dde000 rw-p 00000000 00:00 0 
+7f1c99dde000-7f1c99de1000 ---p 00000000 00:00 0 
+7f1c99de1000-7f1c99edf000 rw-p 00000000 00:00 0 
+7f1c99edf000-7f1c99ee2000 ---p 00000000 00:00 0 
+7f1c99ee2000-7f1c99fe0000 rw-p 00000000 00:00 0 
+7f1c99fe0000-7f1c99fe3000 ---p 00000000 00:00 0 
+7f1c99fe3000-7f1c9a0e1000 rw-p 00000000 00:00 0 
+7f1c9a0e1000-7f1c9a0e4000 ---p 00000000 00:00 0 
+7f1c9a0e4000-7f1c9a1e2000 rw-p 00000000 00:00 0 
+7f1c9a1e2000-7f1c9a1e5000 ---p 00000000 00:00 0 
+7f1c9a1e5000-7f1c9a2e3000 rw-p 00000000 00:00 0 
+7f1c9a2e3000-7f1c9a2e6000 ---p 00000000 00:00 0 
+7f1c9a2e6000-7f1c9a3e4000 rw-p 00000000 00:00 0 
+7f1c9a3e4000-7f1c9a3e7000 ---p 00000000 00:00 0 
+7f1c9a3e7000-7f1c9a4e5000 rw-p 00000000 00:00 0 
+7f1c9a4e5000-7f1c9a4e8000 ---p 00000000 00:00 0 
+7f1c9a4e8000-7f1c9a5e6000 rw-p 00000000 00:00 0 
+7f1c9a5e6000-7f1c9a5e9000 ---p 00000000 00:00 0 
+7f1c9a5e9000-7f1c9a6e7000 rw-p 00000000 00:00 0 
+7f1c9a6e7000-7f1c9a6ea000 ---p 00000000 00:00 0 
+7f1c9a6ea000-7f1c9a7e8000 rw-p 00000000 00:00 0 
+7f1c9a7e8000-7f1c9a7eb000 ---p 00000000 00:00 0 
+7f1c9a7eb000-7f1c9a8e9000 rw-p 00000000 00:00 0 
+7f1c9a8e9000-7f1c9a8ec000 ---p 00000000 00:00 0 
+7f1c9a8ec000-7f1c9a9ea000 rw-p 00000000 00:00 0 
+7f1c9a9ea000-7f1c9a9ed000 ---p 00000000 00:00 0 
+7f1c9a9ed000-7f1c9aaeb000 rw-p 00000000 00:00 0 
+7f1c9aaeb000-7f1c9aaee000 ---p 00000000 00:00 0 
+7f1c9aaee000-7f1c9abec000 rw-p 00000000 00:00 0 
+7f1c9abec000-7f1c9abef000 ---p 00000000 00:00 0 
+7f1c9abef000-7f1c9aced000 rw-p 00000000 00:00 0 
+7f1c9aced000-7f1c9acf0000 ---p 00000000 00:00 0 
+7f1c9acf0000-7f1c9adee000 rw-p 00000000 00:00 0 
+7f1c9adee000-7f1c9adf1000 ---p 00000000 00:00 0 
+7f1c9adf1000-7f1c9aeef000 rw-p 00000000 00:00 0 
+7f1c9aeef000-7f1c9aef2000 ---p 00000000 00:00 0 
+7f1c9aef2000-7f1c9aff0000 rw-p 00000000 00:00 0 
+7f1c9aff0000-7f1c9aff3000 ---p 00000000 00:00 0 
+7f1c9aff3000-7f1c9b0f1000 rw-p 00000000 00:00 0 
+7f1c9b0f1000-7f1c9b0f4000 ---p 00000000 00:00 0 
+7f1c9b0f4000-7f1c9b1f2000 rw-p 00000000 00:00 0 
+7f1c9b1f2000-7f1c9b1f5000 ---p 00000000 00:00 0 
+7f1c9b1f5000-7f1c9b2f3000 rw-p 00000000 00:00 0 
+7f1c9b2f3000-7f1c9b2f6000 ---p 00000000 00:00 0 
+7f1c9b2f6000-7f1c9b3f4000 rw-p 00000000 00:00 0 
+7f1c9b3f4000-7f1c9b3f7000 ---p 00000000 00:00 0 
+7f1c9b3f7000-7f1c9b4f5000 rw-p 00000000 00:00 0 
+7f1c9b4f5000-7f1c9b4f8000 ---p 00000000 00:00 0 
+7f1c9b4f8000-7f1c9b5f6000 rw-p 00000000 00:00 0 
+7f1c9b5f6000-7f1c9b5f9000 ---p 00000000 00:00 0 
+7f1c9b5f9000-7f1c9b6f7000 rw-p 00000000 00:00 0 
+7f1c9b6f7000-7f1c9b6fa000 ---p 00000000 00:00 0 
+7f1c9b6fa000-7f1c9b7f8000 rw-p 00000000 00:00 0 
+7f1c9b7f8000-7f1c9b7fb000 ---p 00000000 00:00 0 
+7f1c9b7fb000-7f1c9b8f9000 rw-p 00000000 00:00 0 
+7f1c9b8f9000-7f1c9b8fc000 ---p 00000000 00:00 0 
+7f1c9b8fc000-7f1c9b9fa000 rw-p 00000000 00:00 0 
+7f1c9b9fa000-7f1c9b9fd000 ---p 00000000 00:00 0 
+7f1c9b9fd000-7f1c9bafb000 rw-p 00000000 00:00 0 
+7f1c9bafb000-7f1c9bafe000 ---p 00000000 00:00 0 
+7f1c9bafe000-7f1c9bbfc000 rw-p 00000000 00:00 0 
+7f1c9bbfc000-7f1c9bbff000 ---p 00000000 00:00 0 
+7f1c9bbff000-7f1c9bcfd000 rw-p 00000000 00:00 0 
+7f1c9bcfd000-7f1c9bd00000 ---p 00000000 00:00 0 
+7f1c9bd00000-7f1c9bdfe000 rw-p 00000000 00:00 0 
+7f1c9bdfe000-7f1c9be01000 ---p 00000000 00:00 0 
+7f1c9be01000-7f1c9beff000 rw-p 00000000 00:00 0 
+7f1c9beff000-7f1c9bf02000 ---p 00000000 00:00 0 
+7f1c9bf02000-7f1c9c000000 rw-p 00000000 00:00 0 
+7f1c9c000000-7f1c9c021000 rw-p 00000000 00:00 0 
+7f1c9c021000-7f1ca0000000 ---p 00000000 00:00 0 
+7f1ca009a000-7f1ca009d000 ---p 00000000 00:00 0 
+7f1ca009d000-7f1ca019b000 rw-p 00000000 00:00 0 
+7f1ca019b000-7f1ca019e000 ---p 00000000 00:00 0 
+7f1ca019e000-7f1ca029c000 rw-p 00000000 00:00 0 
+7f1ca029c000-7f1ca029f000 ---p 00000000 00:00 0 
+7f1ca029f000-7f1ca039d000 rw-p 00000000 00:00 0 
+7f1ca039d000-7f1ca03a0000 ---p 00000000 00:00 0 
+7f1ca03a0000-7f1ca049e000 rw-p 00000000 00:00 0 
+7f1ca049e000-7f1ca04a1000 ---p 00000000 00:00 0 
+7f1ca04a1000-7f1ca059f000 rw-p 00000000 00:00 0 
+7f1ca059f000-7f1ca05a2000 ---p 00000000 00:00 0 
+7f1ca05a2000-7f1ca06a0000 rw-p 00000000 00:00 0 
+7f1ca06a0000-7f1ca06a3000 ---p 00000000 00:00 0 
+7f1ca06a3000-7f1ca07a1000 rw-p 00000000 00:00 0 
+7f1ca07a1000-7f1ca07a4000 ---p 00000000 00:00 0 
+7f1ca07a4000-7f1ca08a2000 rw-p 00000000 00:00 0 
+7f1ca08a2000-7f1ca08a5000 ---p 00000000 00:00 0 
+7f1ca08a5000-7f1ca09a3000 rw-p 00000000 00:00 0 
+7f1ca09a3000-7f1ca09a6000 ---p 00000000 00:00 0 
+7f1ca09a6000-7f1ca0aa4000 rw-p 00000000 00:00 0 
+7f1ca0aa4000-7f1ca0aa7000 ---p 00000000 00:00 0 
+7f1ca0aa7000-7f1ca0ba5000 rw-p 00000000 00:00 0 
+7f1ca0ba5000-7f1ca0ba8000 ---p 00000000 00:00 0 
+7f1ca0ba8000-7f1ca0ca6000 rw-p 00000000 00:00 0 
+7f1ca0ca6000-7f1ca0ca9000 ---p 00000000 00:00 0 
+7f1ca0ca9000-7f1ca0da7000 rw-p 00000000 00:00 0 
+7f1ca0da7000-7f1ca0daa000 ---p 00000000 00:00 0 
+7f1ca0daa000-7f1ca0ea8000 rw-p 00000000 00:00 0 
+7f1ca0ea8000-7f1ca0eab000 ---p 00000000 00:00 0 
+7f1ca0eab000-7f1ca11a9000 rw-p 00000000 00:00 0 
+7f1ca11a9000-7f1ca11ac000 ---p 00000000 00:00 0 
+7f1ca11ac000-7f1ca12aa000 rw-p 00000000 00:00 0 
+7f1ca12aa000-7f1ca12bb000 r-xp 00000000 ca:01 1855504                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnio.so
+7f1ca12bb000-7f1ca14bb000 ---p 00011000 ca:01 1855504                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnio.so
+7f1ca14bb000-7f1ca14bc000 rw-p 00011000 ca:01 1855504                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnio.so
+7f1ca14bc000-7f1ca14bf000 rw-p 00018000 ca:01 1855504                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnio.so
+7f1ca14bf000-7f1ca14c2000 ---p 00000000 00:00 0 
+7f1ca14c2000-7f1ca17c0000 rw-p 00000000 00:00 0 
+7f1ca17c0000-7f1ca17c1000 r-xp 00000000 ca:01 1855409                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjaas_unix.so
+7f1ca17c1000-7f1ca19c0000 ---p 00001000 ca:01 1855409                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjaas_unix.so
+7f1ca19c0000-7f1ca19c1000 rw-p 00000000 ca:01 1855409                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjaas_unix.so
+7f1ca19c1000-7f1ca19c2000 rw-p 00002000 ca:01 1855409                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjaas_unix.so
+7f1ca19c2000-7f1ca19c5000 ---p 00000000 00:00 0 
+7f1ca19c5000-7f1ca1ac3000 rw-p 00000000 00:00 0 
+7f1ca1ac3000-7f1ca1ac6000 ---p 00000000 00:00 0 
+7f1ca1ac6000-7f1ca1cfc000 rw-p 00000000 00:00 0 
+7f1ca1cfc000-7f1ca1d04000 r-xp 00000000 ca:01 1855491                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libmanagement.so
+7f1ca1d04000-7f1ca1f04000 ---p 00008000 ca:01 1855491                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libmanagement.so
+7f1ca1f04000-7f1ca1f05000 rw-p 00008000 ca:01 1855491                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libmanagement.so
+7f1ca1f05000-7f1ca1f07000 rw-p 0000c000 ca:01 1855491                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libmanagement.so
+7f1ca1f07000-7f1ca2107000 rw-p 00000000 00:00 0 
+7f1ca2107000-7f1ca211d000 r-xp 00000000 ca:01 2719                       /lib64/libresolv-2.17.so
+7f1ca211d000-7f1ca231d000 ---p 00016000 ca:01 2719                       /lib64/libresolv-2.17.so
+7f1ca231d000-7f1ca231e000 r--p 00016000 ca:01 2719                       /lib64/libresolv-2.17.so
+7f1ca231e000-7f1ca231f000 rw-p 00017000 ca:01 2719                       /lib64/libresolv-2.17.so
+7f1ca231f000-7f1ca2321000 rw-p 00000000 00:00 0 
+7f1ca2321000-7f1ca2326000 r-xp 00000000 ca:01 2707                       /lib64/libnss_dns-2.17.so
+7f1ca2326000-7f1ca2525000 ---p 00005000 ca:01 2707                       /lib64/libnss_dns-2.17.so
+7f1ca2525000-7f1ca2526000 r--p 00004000 ca:01 2707                       /lib64/libnss_dns-2.17.so
+7f1ca2526000-7f1ca2527000 rw-p 00005000 ca:01 2707                       /lib64/libnss_dns-2.17.so
+7f1ca252c000-7f1ca252e000 rw-p 00000000 00:00 0 
+7f1ca252e000-7f1ca2532000 r--s 0009a000 ca:01 1855528                    /home/ec2-user/anaconda3/envs/python3/jre/lib/jsse.jar
+7f1ca2532000-7f1ca2549000 r-xp 00000000 ca:01 1855505                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnet.so
+7f1ca2549000-7f1ca2748000 ---p 00017000 ca:01 1855505                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnet.so
+7f1ca2748000-7f1ca2749000 rw-p 00016000 ca:01 1855505                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnet.so
+7f1ca2749000-7f1ca274b000 rw-p 0001d000 ca:01 1855505                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libnet.so
+7f1ca274b000-7f1ca294b000 rw-p 00000000 00:00 0 
+7f1ca294b000-7f1ca294d000 r--s 0000f000 ca:01 800222                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/activation-1.1.1.jar
+7f1ca294d000-7f1ca294f000 r--s 0000e000 ca:01 800221                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/guice-servlet-3.0.jar
+7f1ca294f000-7f1ca2990000 r--s 0035a000 ca:01 800220                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/netty-all-4.1.17.Final.jar
+7f1ca2990000-7f1ca2992000 r--s 00008000 ca:01 800219                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-compiler-3.0.8.jar
+7f1ca2992000-7f1ca2993000 r--s 00006000 ca:01 800218                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-client-2.7.3.jar
+7f1ca2993000-7f1ca2995000 r--s 0000a000 ca:01 800217                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-unsafe_2.11-2.3.1.jar
+7f1ca2995000-7f1ca2998000 r--s 00016000 ca:01 800216                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jsp-api-2.1.jar
+7f1ca2998000-7f1ca299a000 r--s 0000b000 ca:01 800215                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-kvstore_2.11-2.3.1.jar
+7f1ca299a000-7f1ca299d000 r--s 00012000 ca:01 800214                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/json4s-ast_2.11-3.2.11.jar
+7f1ca299d000-7f1ca29a0000 r--s 00015000 ca:01 800213                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javax.servlet-api-3.1.0.jar
+7f1ca29a0000-7f1ca29ad000 r--s 000b2000 ca:01 800212                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/httpclient-4.5.4.jar
+7f1ca29ad000-7f1ca29b0000 r--s 0000e000 ca:01 800211                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-container-servlet-core-2.22.2.jar
+7f1ca29b0000-7f1ca29b2000 r--s 00009000 ca:01 800210                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-cli-1.2.jar
+7f1ca29b2000-7f1ca29d3000 r--s 00177000 ca:01 800209                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hppc-0.7.2.jar
+7f1ca29d3000-7f1ca29e2000 r--s 0009f000 ca:01 800208                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/guice-3.0.jar
+7f1ca29e2000-7f1ca29ef000 r--s 000b1000 ca:01 800207                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-common-2.7.3.jar
+7f1ca29ef000-7f1ca29fb000 r--s 000b6000 ca:01 800206                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/zookeeper-3.4.6.jar
+7f1ca29fb000-7f1ca2a08000 r--s 00071000 ca:01 800205                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-module-scala_2.11-2.6.7.1.jar
+7f1ca2a08000-7f1ca2a0a000 r--s 00012000 ca:01 800204                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/compress-lzf-1.0.3.jar
+7f1ca2a0a000-7f1ca2a0b000 r--s 00002000 ca:01 800203                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jpam-1.1.jar
+7f1ca2a0b000-7f1ca2a17000 r--s 000b7000 ca:01 800202                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/janino-3.0.8.jar
+7f1ca2a17000-7f1ca2a34000 r--s 001d5000 ca:01 800201                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-api-2.7.3.jar
+7f1ca2a34000-7f1ca2a37000 r--s 0002f000 ca:01 800200                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/RoaringBitmap-0.5.11.jar
+7f1ca2a37000-7f1ca2a40000 r--s 00046000 ca:01 800199                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-dataformat-yaml-2.6.7.jar
+7f1ca2a40000-7f1ca2a43000 r--s 00025000 ca:01 800198                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-dbcp-1.4.jar
+7f1ca2a43000-7f1ca2a46000 r--s 00015000 ca:01 800197                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/pyrolite-4.13.jar
+7f1ca2a46000-7f1ca2a48000 r--s 00009000 ca:01 800196                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-common-1.8.3.jar
+7f1ca2a48000-7f1ca2a4c000 r--s 00020000 ca:01 800195                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-digester-1.8.jar
+7f1ca2a4c000-7f1ca2a51000 r--s 00041000 ca:01 800194                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-lang-2.6.jar
+7f1ca2a51000-7f1ca2a5f000 r--s 0009d000 ca:01 800193                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-common-2.22.2.jar
+7f1ca2a5f000-7f1ca2a71000 r--s 00112000 ca:01 800192                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/arpack_combined_all-0.1.jar
+7f1ca2a71000-7f1ca2a72000 r--s 00003000 ca:01 800191                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/metrics-json-3.1.5.jar
+7f1ca2a72000-7f1ca2a7c000 r--s 000a5000 ca:01 800190                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javassist-3.18.1-GA.jar
+7f1ca2a7c000-7f1ca2b67000 r--s 00b81000 ca:01 800189                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-core_2.11-2.3.1.jar
+7f1ca2b67000-7f1ca2b6b000 r--s 00019000 ca:01 800188                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javax.ws.rs-api-2.0.1.jar
+7f1ca2b6b000-7f1ca2c14000 r--s 00a4f000 ca:01 800187                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hive-exec-1.2.1.spark2.jar
+7f1ca2c14000-7f1ca2c1e000 r--s 0009a000 ca:01 800186                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scala-xml_2.11-1.0.5.jar
+7f1ca2c1e000-7f1ca2c20000 r--s 00100000 ca:01 800185                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/snappy-java-1.1.2.6.jar
+7f1ca2c20000-7f1ca2c21000 r--s 00006000 ca:01 800184                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-xc-1.9.13.jar
+7f1ca2c21000-7f1ca2cc9000 r--s 007ef000 ca:01 800183                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-catalyst_2.11-2.3.1.jar
+7f1ca2cc9000-7f1ca2cd1000 r--s 00058000 ca:01 800182                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-format-2.3.1.jar
+7f1ca2cd1000-7f1ca2d00000 r--s 001e3000 ca:01 800181                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-streaming_2.11-2.3.1.jar
+7f1ca2d00000-7f1ca2d29000 r--s 001ee000 ca:01 800180                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/guava-14.0.1.jar
+7f1ca2d29000-7f1ca2e35000 r--s 00dba000 ca:01 800179                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scala-compiler-2.11.8.jar
+7f1ca2e35000-7f1ca2e38000 r--s 00021000 ca:01 800178                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/xbean-asm5-shaded-4.4.jar
+7f1ca2e38000-7f1ca2e3a000 r--s 00002000 ca:01 800177                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/aopalliance-repackaged-2.4.0-b34.jar
+7f1ca2e3a000-7f1ca2e68000 r--s 00218000 ca:01 800176                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-network-common_2.11-2.3.1.jar
+7f1ca2e68000-7f1ca2e71000 r--s 0006f000 ca:01 800175                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/log4j-1.2.17.jar
+7f1ca2e71000-7f1ca2e87000 r--s 001a4000 ca:01 800174                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/datanucleus-rdbms-3.2.9.jar
+7f1ca2e87000-7f1ca2e89000 r--s 00001000 ca:01 800173                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/logging-interceptor-3.8.1.jar
+7f1ca2e89000-7f1ca2e8b000 r--s 0001e000 ca:01 800172                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/aircompressor-0.8.jar
+7f1ca2e8b000-7f1ca2e8e000 r--s 00015000 ca:01 800171                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-pool-1.5.4.jar
+7f1ca2e8e000-7f1ca2e90000 r--s 00007000 ca:01 800170                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/paranamer-2.8.jar
+7f1ca2e90000-7f1ca2e95000 r--s 00027000 ca:01 800169                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hk2-api-2.4.0-b34.jar
+7f1ca2e95000-7f1ca2e99000 r--s 0002f000 ca:01 800168                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-beanutils-core-1.8.0.jar
+7f1ca2e99000-7f1ca2e9d000 r--s 0000c000 ca:01 800167                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/validation-api-1.1.0.Final.jar
+7f1ca2e9d000-7f1ca2ea5000 r--s 00056000 ca:01 800166                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/univocity-parsers-2.5.9.jar
+7f1ca2ea5000-7f1ca2eaa000 r--s 00068000 ca:01 800165                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/antlr-2.7.7.jar
+7f1ca2eaa000-7f1ca2eae000 r--s 00025000 ca:01 800164                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/antlr-runtime-3.4.jar
+7f1ca2eae000-7f1ca2ebf000 r--s 00092000 ca:01 800163                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-mesos_2.11-2.3.1.jar
+7f1ca2ebf000-7f1ca2eca000 r--s 00062000 ca:01 800162                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/calcite-linq4j-1.2.0-incubating.jar
+7f1ca2eca000-7f1ca2ece000 r--s 0002a000 ca:01 800161                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/breeze-macros_2.11-0.13.2.jar
+7f1ca2ece000-7f1ca2ed8000 r--s 00086000 ca:01 800160                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/json4s-core_2.11-3.2.11.jar
+7f1ca2ed8000-7f1ca2f84000 r--s 0079f000 ca:01 800159                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-sql_2.11-2.3.1.jar
+7f1ca2f84000-7f1ca2f86000 r--s 0000e000 ca:01 800158                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/oro-2.0.8.jar
+7f1ca2f86000-7f1ca2f9f000 r--s 00150000 ca:01 800157                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/htrace-core-3.1.0-incubating.jar
+7f1ca2f9f000-7f1ca2fa4000 r--s 00027000 ca:01 800156                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/automaton-1.11-8.jar
+7f1ca2fa4000-7f1ca2fa6000 r--s 00003000 ca:01 800155                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-container-servlet-2.22.2.jar
+7f1ca2fa6000-7f1ca2faa000 r--s 0001a000 ca:01 800154                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/metrics-core-3.1.5.jar
+7f1ca2faa000-7f1ca2fb1000 r--s 00046000 ca:01 800153                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/libfb303-0.9.3.jar
+7f1ca2fb1000-7f1ca2fcb000 r--s 00125000 ca:01 800152                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-hive_2.11-2.3.1.jar
+7f1ca2fcb000-7f1ca2fd2000 r--s 00039000 ca:01 800151                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/calcite-avatica-1.2.0-incubating.jar
+7f1ca2fd2000-7f1ca2fd5000 r--s 000fd000 ca:01 800150                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/leveldbjni-all-1.8.jar
+7f1ca2fd5000-7f1ca2fd8000 r--s 00019000 ca:01 800149                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/bonecp-0.8.0.RELEASE.jar
+7f1ca2fd8000-7f1ca2fda000 r--s 00009000 ca:01 800148                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-module-paranamer-2.7.9.jar
+7f1ca2fda000-7f1ca2ff2000 r--s 001b6000 ca:01 800147                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/datanucleus-core-3.2.10.jar
+7f1ca2ff2000-7f1ca2ff3000 r--s 00009000 ca:01 800146                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/slf4j-api-1.7.16.jar
+7f1ca2ff3000-7f1ca2ff6000 r--s 00017000 ca:01 800145                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jaxb-api-2.2.2.jar
+7f1ca2ff6000-7f1ca3083000 r--s 006d5000 ca:01 800144                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-mllib_2.11-2.3.1.jar
+7f1ca3083000-7f1ca308b000 r--s 00066000 ca:01 800143                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/apache-log4j-extras-1.2.17.jar
+7f1ca308b000-7f1ca30c1000 r--s 0031c000 ca:01 800142                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-common-2.7.3.jar
+7f1ca30c1000-7f1ca30c7000 r--s 0002c000 ca:01 800141                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jdo-api-3.0.1.jar
+7f1ca30c7000-7f1ca30d0000 r--s 00062000 ca:01 800140                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/avro-1.7.7.jar
+7f1ca30d0000-7f1ca30f1000 r--s 0019a000 ca:01 800139                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-hive-thriftserver_2.11-2.3.1.jar
+7f1ca30f1000-7f1ca30f2000 r--s 00013000 ca:01 800138                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/okio-1.13.0.jar
+7f1ca30f2000-7f1ca30f9000 r--s 00049000 ca:01 800137                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/httpcore-4.4.8.jar
+7f1ca30f9000-7f1ca3103000 r--s 00054000 ca:01 800136                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-kubernetes_2.11-2.3.1.jar
+7f1ca3103000-7f1ca3105000 r--s 00000000 ca:01 800135                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/aopalliance-1.0.jar
+7f1ca3105000-7f1ca3107000 r--s 0000e000 ca:01 800134                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-logging-1.1.3.jar
+7f1ca3107000-7f1ca313b000 r--s 00277000 ca:01 800133                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-hadoop-bundle-1.6.0.jar
+7f1ca313b000-7f1ca313d000 r--s 0000d000 ca:01 800132                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/chill-java-0.8.4.jar
+7f1ca313d000-7f1ca31a0000 r--s 004de000 ca:01 800131                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hive-metastore-1.2.1.spark2.jar
+7f1ca31a0000-7f1ca31a4000 r--s 00014000 ca:01 800130                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/xz-1.0.jar
+7f1ca31a4000-7f1ca31a6000 r--s 00003000 ca:01 800129                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/api-asn1-api-1.0.0-M20.jar
+7f1ca31a6000-7f1ca31a7000 r--s 00009000 ca:01 800128                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-annotations-2.7.3.jar
+7f1ca31a7000-7f1ca31aa000 r--s 00058000 ca:01 800127                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/lz4-java-1.4.0.jar
+7f1ca31aa000-7f1ca31b4000 r--s 0005c000 ca:01 800126                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/kubernetes-client-3.0.0.jar
+7f1ca31b4000-7f1ca31b6000 r--s 0000e000 ca:01 800125                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-jobclient-2.7.3.jar
+7f1ca31b6000-7f1ca31c8000 r--s 000b3000 ca:01 800124                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scalap-2.11.8.jar
+7f1ca31c8000-7f1ca31d0000 r--s 00059000 ca:01 800123                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javolution-5.5.1.jar
+7f1ca31d0000-7f1ca31de000 r--s 000b1000 ca:01 800122                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-mapper-asl-1.9.13.jar
+7f1ca31de000-7f1ca31e2000 r--s 0001a000 ca:01 800121                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-repl_2.11-2.3.1.jar
+7f1ca31e2000-7f1ca31e8000 r--s 00063000 ca:01 800120                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jodd-core-3.5.2.jar
+7f1ca31e8000-7f1ca31e9000 r--s 00009000 ca:01 800119                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/json4s-jackson_2.11-3.2.11.jar
+7f1ca31e9000-7f1ca31f0000 r--s 0007d000 ca:01 800118                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jetty-6.1.26.jar
+7f1ca31f0000-7f1ca31f1000 r--s 00001000 ca:01 800117                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javax.inject-2.4.0-b34.jar
+7f1ca31f1000-7f1ca31f3000 r--s 0000f000 ca:01 800116                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/curator-client-2.7.1.jar
+7f1ca31f3000-7f1ca31f5000 r--s 00238000 ca:01 800115                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/zstd-jni-1.3.2-2.jar
+7f1ca31f5000-7f1ca31f7000 r--s 00003000 ca:01 800114                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/base64-2.3.8.jar
+7f1ca31f7000-7f1ca31fe000 r--s 0003f000 ca:01 800113                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-codec-1.10.jar
+7f1ca31fe000-7f1ca31ff000 r--s 00004000 ca:01 800112                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/eigenbase-properties-1.1.5.jar
+7f1ca31ff000-7f1ca3201000 r--s 00004000 ca:01 800111                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/stax-api-1.0-2.jar
+7f1ca3201000-7f1ca3205000 r--s 00030000 ca:01 800110                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-net-2.2.jar
+7f1ca3205000-7f1ca3207000 r--s 00005000 ca:01 800109                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javax.annotation-api-1.2.jar
+7f1ca3207000-7f1ca3208000 r--s 00003000 ca:01 800108                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/generex-1.0.1.jar
+7f1ca3208000-7f1ca320c000 r--s 0002c000 ca:01 800107                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/avro-ipc-1.7.7.jar
+7f1ca320c000-7f1ca320f000 r--s 00028000 ca:01 800106                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/stream-2.7.0.jar
+7f1ca320f000-7f1ca3211000 r--s 00006000 ca:01 800105                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-sketch_2.11-2.3.1.jar
+7f1ca3211000-7f1ca3215000 r--s 00033000 ca:01 800104                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/chill_2.11-0.8.4.jar
+7f1ca3215000-7f1ca321b000 r--s 0005c000 ca:01 800103                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/okhttp-3.8.1.jar
+7f1ca321b000-7f1ca321d000 r--s 00027000 ca:01 800102                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/core-1.1.2.jar
+7f1ca321d000-7f1ca321e000 r--s 00001000 ca:01 800101                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/minlog-1.3.0.jar
+7f1ca321e000-7f1ca3228000 r--s 0007b000 ca:01 800100                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-app-2.7.3.jar
+7f1ca3228000-7f1ca322d000 r--s 00036000 ca:01 800099                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-compress-1.4.1.jar
+7f1ca322d000-7f1ca3298000 r--s 00784000 ca:01 800098                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-hdfs-2.7.3.jar
+7f1ca3298000-7f1ca329a000 r--s 0001c000 ca:01 800097                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/py4j-0.10.7.jar
+7f1ca329a000-7f1ca329b000 r--s 00008000 ca:01 800096                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/machinist_2.11-0.6.1.jar
+7f1ca329b000-7f1ca329e000 r--s 00009000 ca:01 800095                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-annotations-2.6.7.jar
+7f1ca329e000-7f1ca32a0000 r--s 0001f000 ca:01 800094                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-crypto-1.0.0.jar
+7f1ca32a0000-7f1ca32a2000 r--s 00007000 ca:01 800093                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/zjsonpatch-0.3.0.jar
+7f1ca32a2000-7f1ca32a5000 r--s 00006000 ca:01 800092                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jsr305-1.3.9.jar
+7f1ca32a5000-7f1ca32a6000 r--s 00003000 ca:01 800091                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jta-1.1.jar
+7f1ca32a6000-7f1ca32a8000 r--s 00003000 ca:01 800090                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/java-xmlbuilder-1.1.jar
+7f1ca32a8000-7f1ca32ab000 r--s 00014000 ca:01 800089                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/super-csv-2.2.0.jar
+7f1ca32ab000-7f1ca32af000 r--s 00031000 ca:01 800088                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jline-2.12.1.jar
+7f1ca32af000-7f1ca32c0000 r--s 0010c000 ca:01 800087                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-databind-2.6.7.1.jar
+7f1ca32c0000-7f1ca32c1000 r--s 00007000 ca:01 800086                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-module-jaxb-annotations-2.6.7.jar
+7f1ca32c1000-7f1ca32c2000 r--s 0000a000 ca:01 800085                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/apacheds-i18n-2.0.0-M15.jar
+7f1ca32c2000-7f1ca32da000 r--s 00115000 ca:01 800084                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/xercesImpl-2.9.1.jar
+7f1ca32da000-7f1ca32dc000 r--s 00017000 ca:01 800083                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hive-jdbc-1.2.1.spark2.jar
+7f1ca32dc000-7f1ca32e0000 r--s 00025000 ca:01 800082                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-client-2.22.2.jar
+7f1ca32e0000-7f1ca32e2000 r--s 00014000 ca:01 800081                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spire-macros_2.11-0.13.0.jar
+7f1ca32e2000-7f1ca32e8000 r--s 0003c000 ca:01 800080                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/snakeyaml-1.15.jar
+7f1ca32e8000-7f1ca32fa000 r--s 00097000 ca:01 800079                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/apacheds-kerberos-codec-2.0.0-M15.jar
+7f1ca32fa000-7f1ca3300000 r--s 00045000 ca:01 800078                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-httpclient-3.1.jar
+7f1ca3300000-7f1ca3346000 r--s 00317000 ca:01 800077                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/shapeless_2.11-2.3.2.jar
+7f1ca3346000-7f1ca335c000 r--s 00124000 ca:01 800076                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/ivy-2.4.0.jar
+7f1ca335c000-7f1ca335e000 r--s 00012000 ca:01 800075                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/arrow-memory-0.8.0.jar
+7f1ca335e000-7f1ca336b000 r--s 00083000 ca:01 800074                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-collections-3.2.2.jar
+7f1ca336b000-7f1ca3379000 r--s 000a0000 ca:01 800073                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-graphx_2.11-2.3.1.jar
+7f1ca3379000-7f1ca337a000 r--s 00003000 ca:01 800072                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/xmlenc-0.52.jar
+7f1ca337a000-7f1ca337c000 r--s 00011000 ca:01 800071                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-launcher_2.11-2.3.1.jar
+7f1ca337c000-7f1ca337e000 r--s 00012000 ca:01 800070                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/api-util-1.0.0-M20.jar
+7f1ca337e000-7f1ca33d1000 r--s 00373000 ca:01 800069                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/bcprov-jdk15on-1.58.jar
+7f1ca33d1000-7f1ca33f5000 r--s 001cd000 ca:01 800068                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-math3-3.4.1.jar
+7f1ca33f5000-7f1ca3406000 r--s 00089000 ca:01 800067                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/joda-time-2.9.3.jar
+7f1ca3406000-7f1ca3407000 r--s 00000000 ca:01 800066                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/javax.inject-1.jar
+7f1ca3407000-7f1ca341e000 r--s 00183000 ca:01 800065                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-common-2.7.3.jar
+7f1ca341e000-7f1ca3420000 r--s 00010000 ca:01 800064                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-media-jaxb-2.22.2.jar
+7f1ca3420000-7f1ca3424000 r--s 00029000 ca:01 800063                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hk2-locator-2.4.0-b34.jar
+7f1ca3424000-7f1ca343b000 r--s 000d4000 ca:01 800062                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-column-1.8.3.jar
+7f1ca343b000-7f1ca3441000 r--s 00043000 ca:01 800061                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-configuration-1.6.jar
+7f1ca3441000-7f1ca3445000 r--s 0002a000 ca:01 800060                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-io-2.4.jar
+7f1ca3445000-7f1ca3459000 r--s 000ec000 ca:01 800059                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-jackson-1.8.3.jar
+7f1ca3459000-7f1ca345b000 r--s 00004000 ca:01 800058                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/metrics-graphite-3.1.5.jar
+7f1ca345b000-7f1ca345e000 r--s 00022000 ca:01 800057                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/stringtemplate-3.2.1.jar
+7f1ca345e000-7f1ca348d000 r--s 002e5000 ca:01 800056                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/derby-10.12.1.1.jar
+7f1ca348d000-7f1ca3494000 r--s 00051000 ca:01 800055                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/kryo-shaded-3.0.3.jar
+7f1ca3494000-7f1ca3495000 r--s 00009000 ca:01 800054                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hive-cli-1.2.1.spark2.jar
+7f1ca3495000-7f1ca349a000 r--s 0004e000 ca:01 800053                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/datanucleus-api-jdo-3.2.6.jar
+7f1ca349a000-7f1ca34a2000 r--s 0007b000 ca:01 800052                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/protobuf-java-2.5.0.jar
+7f1ca34a2000-7f1ca350d000 r--s 0093d000 ca:01 800051                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spire_2.11-0.13.0.jar
+7f1ca350d000-7f1ca351d000 r--s 00127000 ca:01 800050                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/arrow-vector-0.8.0.jar
+7f1ca351d000-7f1ca3576000 r--s 00522000 ca:01 800049                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scala-library-2.11.8.jar
+7f1ca3576000-7f1ca3578000 r--s 0000e000 ca:01 800048                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-network-shuffle_2.11-2.3.1.jar
+7f1ca3578000-7f1ca3580000 r--s 0006e000 ca:01 800047                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-lang3-3.5.jar
+7f1ca3580000-7f1ca3593000 r--s 0014e000 ca:01 800046                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/orc-core-1.4.4-nohive.jar
+7f1ca3593000-7f1ca3597000 r--s 00029000 ca:01 800045                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-mllib-local_2.11-2.3.1.jar
+7f1ca3597000-7f1ca35af000 r--s 000d6000 ca:01 800044                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-guava-2.22.2.jar
+7f1ca35af000-7f1ca35b4000 r--s 0002a000 ca:01 800043                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/gson-2.2.4.jar
+7f1ca35b4000-7f1ca35b6000 r--s 00020000 ca:01 800042                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hive-beeline-1.2.1.spark2.jar
+7f1ca35b6000-7f1ca35b7000 r--s 00004000 ca:01 800041                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-jaxrs-1.9.13.jar
+7f1ca35b7000-7f1ca35b9000 r--s 00000000 ca:01 800040                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jul-to-slf4j-1.7.16.jar
+7f1ca35b9000-7f1ca35bb000 r--s 00003000 ca:01 800039                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/JavaEWAH-0.3.2.jar
+7f1ca35bb000-7f1ca35bf000 r--s 0003c000 ca:01 800038                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-core-2.6.7.jar
+7f1ca35bf000-7f1ca35c3000 r--s 00028000 ca:01 800037                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jetty-util-6.1.26.jar
+7f1ca35c3000-7f1ca35d9000 r--s 000d3000 ca:01 800035                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jersey-server-2.22.2.jar
+7f1ca35d9000-7f1ca35dd000 r--s 00035000 ca:01 800034                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jackson-core-asl-1.9.13.jar
+7f1ca35dd000-7f1ca3683000 r--s 0060b000 ca:01 800033                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/kubernetes-model-2.0.0.jar
+7f1ca3683000-7f1ca3686000 r--s 00026000 ca:01 800032                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-client-2.7.3.jar
+7f1ca3686000-7f1ca369f000 r--s 0012c000 ca:01 800031                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/netty-3.9.9.Final.jar
+7f1ca369f000-7f1ca36ba000 r--s 001d9000 ca:01 800030                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jets3t-0.9.4.jar
+7f1ca36ba000-7f1ca36c0000 r--s 00034000 ca:01 800028                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/libthrift-0.9.3.jar
+7f1ca36c0000-7f1ca36c5000 r--s 00039000 ca:01 800027                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-hadoop-1.8.3.jar
+7f1ca36c5000-7f1ca3711000 r--s 00411000 ca:01 800020                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scala-reflect-2.11.8.jar
+7f1ca3711000-7f1ca3720000 r--s 00091000 ca:01 800019                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-yarn_2.11-2.3.1.jar
+7f1ca3720000-7f1ca37f8000 r--s 00d92000 ca:01 800006                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/breeze_2.11-0.13.2.jar
+7f1ca37f8000-7f1ca37f9000 ---p 00000000 00:00 0 
+7f1ca37f9000-7f1ca38f9000 rw-p 00000000 00:00 0 
+7f1ca38f9000-7f1ca38fc000 ---p 00000000 00:00 0 
+7f1ca38fc000-7f1ca39fa000 rw-p 00000000 00:00 0 
+7f1ca39fa000-7f1ca39fd000 ---p 00000000 00:00 0 
+7f1ca39fd000-7f1ca3afb000 rw-p 00000000 00:00 0 
+7f1ca3afb000-7f1ca3afe000 ---p 00000000 00:00 0 
+7f1ca3afe000-7f1ca3bfc000 rw-p 00000000 00:00 0 
+7f1ca3bfc000-7f1ca3bff000 ---p 00000000 00:00 0 
+7f1ca3bff000-7f1ca3cfd000 rw-p 00000000 00:00 0 
+7f1ca3cfd000-7f1ca3d00000 ---p 00000000 00:00 0 
+7f1ca3d00000-7f1ca3dfe000 rw-p 00000000 00:00 0 
+7f1ca3dfe000-7f1ca3e01000 ---p 00000000 00:00 0 
+7f1ca3e01000-7f1ca3eff000 rw-p 00000000 00:00 0 
+7f1ca3eff000-7f1ca3f02000 ---p 00000000 00:00 0 
+7f1ca3f02000-7f1ca4000000 rw-p 00000000 00:00 0 
+7f1ca4000000-7f1ca4021000 rw-p 00000000 00:00 0 
+7f1ca4021000-7f1ca8000000 ---p 00000000 00:00 0 
+7f1ca8000000-7f1ca8002000 r--s 0000d000 ca:01 800036                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-server-web-proxy-2.7.3.jar
+7f1ca8002000-7f1ca8003000 r--s 00004000 ca:01 800029                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/osgi-resource-locator-1.0.1.jar
+7f1ca8003000-7f1ca8008000 r--s 00028000 ca:01 800026                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/avro-mapred-1.7.7-hadoop2.jar
+7f1ca8008000-7f1ca8009000 r--s 00003000 ca:01 800025                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/spark-tags_2.11-2.3.1.jar
+7f1ca8009000-7f1ca800b000 r--s 00009000 ca:01 800023                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/objenesis-2.1.jar
+7f1ca800b000-7f1ca800d000 r--s 00008000 ca:01 800021                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/metrics-jvm-3.1.5.jar
+7f1ca800d000-7f1ca8013000 r--s 00040000 ca:01 800018                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/parquet-encoding-1.8.3.jar
+7f1ca8013000-7f1ca804a000 r--s 00325000 ca:01 800017                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/calcite-core-1.2.0-incubating.jar
+7f1ca804a000-7f1ca8055000 r--s 0005d000 ca:01 800016                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/scala-parser-combinators_2.11-1.0.4.jar
+7f1ca8055000-7f1ca8057000 r--s 00003000 ca:01 800015                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jcl-over-slf4j-1.7.16.jar
+7f1ca8057000-7f1ca805b000 r--s 00036000 ca:01 800014                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/ST4-4.0.4.jar
+7f1ca805b000-7f1ca805d000 r--s 00015000 ca:01 800013                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-auth-2.7.3.jar
+7f1ca805d000-7f1ca8067000 r--s 000af000 ca:01 800012                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/orc-mapreduce-1.4.4-nohive.jar
+7f1ca8067000-7f1ca8072000 r--s 000b0000 ca:01 800011                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jtransforms-2.4.0.jar
+7f1ca8072000-7f1ca808b000 r--s 00164000 ca:01 800010                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-core-2.7.3.jar
+7f1ca808b000-7f1ca8090000 r--s 0002a000 ca:01 800009                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-beanutils-1.7.0.jar
+7f1ca8090000-7f1ca8092000 r--s 0000b000 ca:01 800008                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/arrow-format-0.8.0.jar
+7f1ca8092000-7f1ca809a000 r--s 0003b000 ca:01 800007                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/curator-recipes-2.7.1.jar
+7f1ca809a000-7f1ca80bd000 rw-p 00000000 00:00 0 
+7f1ca80bd000-7f1ca80c1000 r--s 0001a000 ca:01 800004                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hk2-utils-2.4.0-b34.jar
+7f1ca80c1000-7f1ca80c4000 ---p 00000000 00:00 0 
+7f1ca80c4000-7f1ca81c2000 rw-p 00000000 00:00 0 
+7f1ca81c2000-7f1ca81c5000 ---p 00000000 00:00 0 
+7f1ca81c5000-7f1ca82c3000 rw-p 00000000 00:00 0 
+7f1ca82c3000-7f1ca82c6000 ---p 00000000 00:00 0 
+7f1ca82c6000-7f1ca83c4000 rw-p 00000000 00:00 0 
+7f1ca83c4000-7f1ca83c7000 ---p 00000000 00:00 0 
+7f1ca83c7000-7f1ca84c5000 rw-p 00000000 00:00 0 
+7f1ca84c5000-7f1ca84c8000 ---p 00000000 00:00 0 
+7f1ca84c8000-7f1ca85c6000 rw-p 00000000 00:00 0 
+7f1ca85c6000-7f1ca85c9000 ---p 00000000 00:00 0 
+7f1ca85c9000-7f1ca86c7000 rw-p 00000000 00:00 0 
+7f1ca86c7000-7f1ca86ca000 ---p 00000000 00:00 0 
+7f1ca86ca000-7f1ca87c8000 rw-p 00000000 00:00 0 
+7f1ca87c8000-7f1ca87cb000 ---p 00000000 00:00 0 
+7f1ca87cb000-7f1ca88c9000 rw-p 00000000 00:00 0 
+7f1ca88c9000-7f1ca88cc000 ---p 00000000 00:00 0 
+7f1ca88cc000-7f1ca89ca000 rw-p 00000000 00:00 0 
+7f1ca89ca000-7f1ca89cd000 ---p 00000000 00:00 0 
+7f1ca89cd000-7f1ca8acb000 rw-p 00000000 00:00 0 
+7f1ca8acb000-7f1ca8ace000 ---p 00000000 00:00 0 
+7f1ca8ace000-7f1ca8bcc000 rw-p 00000000 00:00 0 
+7f1ca8bcc000-7f1ca8bcf000 ---p 00000000 00:00 0 
+7f1ca8bcf000-7f1ca8ccd000 rw-p 00000000 00:00 0 
+7f1ca8ccd000-7f1ca8cd0000 ---p 00000000 00:00 0 
+7f1ca8cd0000-7f1ca8dce000 rw-p 00000000 00:00 0 
+7f1ca8dce000-7f1ca8dd1000 ---p 00000000 00:00 0 
+7f1ca8dd1000-7f1ca8ecf000 rw-p 00000000 00:00 0 
+7f1ca8ecf000-7f1ca8ed2000 ---p 00000000 00:00 0 
+7f1ca8ed2000-7f1ca8fd0000 rw-p 00000000 00:00 0 
+7f1ca8fd0000-7f1ca8fd1000 ---p 00000000 00:00 0 
+7f1ca8fd1000-7f1cac000000 rw-p 00000000 00:00 0 
+7f1cac000000-7f1cac021000 rw-p 00000000 00:00 0 
+7f1cac021000-7f1cb0000000 ---p 00000000 00:00 0 
+7f1cb0000000-7f1cb0001000 r--s 00002000 ca:01 800024                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/flatbuffers-1.2.0-3f79e055.jar
+7f1cb0001000-7f1cb0042000 r--s 006c0000 ca:01 799947                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/mesos-1.4.0-shaded-protobuf.jar
+7f1cb0042000-7f1cb4000000 rw-p 00000000 00:00 0 
+7f1cb4000000-7f1cb4021000 rw-p 00000000 00:00 0 
+7f1cb4021000-7f1cb8000000 ---p 00000000 00:00 0 
+7f1cb8000000-7f1cb8001000 r--s 00004000 ca:01 800022                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/opencsv-2.3.jar
+7f1cb8001000-7f1cb8002000 r--s 00000000 ca:01 800005                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/macro-compat_2.11-1.1.1.jar
+7f1cb8002000-7f1cbc000000 rw-p 00000000 00:00 0 
+7f1cbc000000-7f1cbc021000 rw-p 00000000 00:00 0 
+7f1cbc021000-7f1cc0000000 ---p 00000000 00:00 0 
+7f1cc0000000-7f1cc0001000 r--s 0000b000 ca:01 800003                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/snappy-0.2.jar
+7f1cc0001000-7f1cc0003000 r--s 00005000 ca:01 800002                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/stax-api-1.0.1.jar
+7f1cc0003000-7f1cc0327000 rw-p 00000000 00:00 0 
+7f1cc0327000-7f1cc04f7000 r--s 03c34000 ca:01 1855543                    /home/ec2-user/anaconda3/envs/python3/jre/lib/rt.jar
+7f1cc04f7000-7f1cc06f7000 rw-p 00000000 00:00 0 
+7f1cc06f7000-7f1cc06f8000 ---p 00000000 00:00 0 
+7f1cc06f8000-7f1cc07f8000 rw-p 00000000 00:00 0 
+7f1cc07f8000-7f1cc07f9000 ---p 00000000 00:00 0 
+7f1cc07f9000-7f1cc08f9000 rw-p 00000000 00:00 0 
+7f1cc08f9000-7f1cc08fa000 ---p 00000000 00:00 0 
+7f1cc08fa000-7f1cc09fa000 rw-p 00000000 00:00 0 
+7f1cc09fa000-7f1cc09fb000 ---p 00000000 00:00 0 
+7f1cc09fb000-7f1cc0afb000 rw-p 00000000 00:00 0 
+7f1cc0afb000-7f1cc0afc000 ---p 00000000 00:00 0 
+7f1cc0afc000-7f1cc0bfc000 rw-p 00000000 00:00 0 
+7f1cc0bfc000-7f1cc0bfd000 ---p 00000000 00:00 0 
+7f1cc0bfd000-7f1cc0cfd000 rw-p 00000000 00:00 0 
+7f1cc0cfd000-7f1cc0cfe000 ---p 00000000 00:00 0 
+7f1cc0cfe000-7f1cc0dfe000 rw-p 00000000 00:00 0 
+7f1cc0dfe000-7f1cc0dff000 ---p 00000000 00:00 0 
+7f1cc0dff000-7f1cc0eff000 rw-p 00000000 00:00 0 
+7f1cc0eff000-7f1cc0f00000 ---p 00000000 00:00 0 
+7f1cc0f00000-7f1cc1000000 rw-p 00000000 00:00 0 
+7f1cc1000000-7f1cc1a60000 rwxp 00000000 00:00 0 
+7f1cc1a60000-7f1cd0000000 ---p 00000000 00:00 0 
+7f1cd0000000-7f1cd0d09000 rw-p 00000000 00:00 0 
+7f1cd0d09000-7f1cd4000000 ---p 00000000 00:00 0 
+7f1cd4000000-7f1cd4006000 r--s 00028000 ca:01 799948                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/curator-framework-2.7.1.jar
+7f1cd4006000-7f1cd400c000 r--s 0004c000 ca:01 799946                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/antlr4-runtime-4.7.jar
+7f1cd400c000-7f1cd400e000 r--s 00010000 ca:01 799945                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-shuffle-2.7.3.jar
+7f1cd400e000-7f1cd40a5000 rw-p 00000000 00:00 0 
+7f1cd40a5000-7f1cd40a6000 ---p 00000000 00:00 0 
+7f1cd40a6000-7f1cd41a6000 rw-p 00000000 00:00 0 
+7f1cd41a6000-7f1cd41a7000 ---p 00000000 00:00 0 
+7f1cd41a7000-7f1cd42a7000 rw-p 00000000 00:00 0 
+7f1cd42a7000-7f1cd42a8000 ---p 00000000 00:00 0 
+7f1cd42a8000-7f1cd43a8000 rw-p 00000000 00:00 0 
+7f1cd43a8000-7f1cd43a9000 ---p 00000000 00:00 0 
+7f1cd43a9000-7f1cd44a9000 rw-p 00000000 00:00 0 
+7f1cd44a9000-7f1cd44aa000 ---p 00000000 00:00 0 
+7f1cd44aa000-7f1cd45aa000 rw-p 00000000 00:00 0 
+7f1cd45aa000-7f1cd45ab000 ---p 00000000 00:00 0 
+7f1cd45ab000-7f1cd46ab000 rw-p 00000000 00:00 0 
+7f1cd46ab000-7f1cd46ac000 ---p 00000000 00:00 0 
+7f1cd46ac000-7f1cd47ac000 rw-p 00000000 00:00 0 
+7f1cd47ac000-7f1cd47ad000 ---p 00000000 00:00 0 
+7f1cd47ad000-7f1cd48ad000 rw-p 00000000 00:00 0 
+7f1cd48ad000-7f1cd48ae000 ---p 00000000 00:00 0 
+7f1cd48ae000-7f1cd49ae000 rw-p 00000000 00:00 0 
+7f1cd49ae000-7f1cd49af000 ---p 00000000 00:00 0 
+7f1cd49af000-7f1cd4aaf000 rw-p 00000000 00:00 0 
+7f1cd4aaf000-7f1cd4ab0000 ---p 00000000 00:00 0 
+7f1cd4ab0000-7f1cd4bb0000 rw-p 00000000 00:00 0 
+7f1cd4bb0000-7f1cd4bb1000 ---p 00000000 00:00 0 
+7f1cd4bb1000-7f1cd4cb1000 rw-p 00000000 00:00 0 
+7f1cd4cb1000-7f1cd4cb2000 ---p 00000000 00:00 0 
+7f1cd4cb2000-7f1cd4db2000 rw-p 00000000 00:00 0 
+7f1cd4db2000-7f1cd4db3000 ---p 00000000 00:00 0 
+7f1cd4db3000-7f1cd4eb3000 rw-p 00000000 00:00 0 
+7f1cd4eb3000-7f1cd4eb4000 ---p 00000000 00:00 0 
+7f1cd4eb4000-7f1cd4fb4000 rw-p 00000000 00:00 0 
+7f1cd4fb4000-7f1cd4fb5000 ---p 00000000 00:00 0 
+7f1cd4fb5000-7f1cd50b5000 rw-p 00000000 00:00 0 
+7f1cd50b5000-7f1cd50b6000 ---p 00000000 00:00 0 
+7f1cd50b6000-7f1cd51b6000 rw-p 00000000 00:00 0 
+7f1cd51b6000-7f1cd51b7000 ---p 00000000 00:00 0 
+7f1cd51b7000-7f1cd52b7000 rw-p 00000000 00:00 0 
+7f1cd52b7000-7f1cd52b8000 ---p 00000000 00:00 0 
+7f1cd52b8000-7f1cd53b8000 rw-p 00000000 00:00 0 
+7f1cd53b8000-7f1cd53b9000 ---p 00000000 00:00 0 
+7f1cd53b9000-7f1cd54b9000 rw-p 00000000 00:00 0 
+7f1cd54b9000-7f1cd54ba000 ---p 00000000 00:00 0 
+7f1cd54ba000-7f1cd55ba000 rw-p 00000000 00:00 0 
+7f1cd55ba000-7f1cd55bb000 ---p 00000000 00:00 0 
+7f1cd55bb000-7f1cd56bb000 rw-p 00000000 00:00 0 
+7f1cd56bb000-7f1cd56bc000 ---p 00000000 00:00 0 
+7f1cd56bc000-7f1cd57bc000 rw-p 00000000 00:00 0 
+7f1cd57bc000-7f1cd57bd000 ---p 00000000 00:00 0 
+7f1cd57bd000-7f1cd58bd000 rw-p 00000000 00:00 0 
+7f1cd58bd000-7f1cd58be000 ---p 00000000 00:00 0 
+7f1cd58be000-7f1cd59be000 rw-p 00000000 00:00 0 
+7f1cd59be000-7f1cd59bf000 ---p 00000000 00:00 0 
+7f1cd59bf000-7f1cd5abf000 rw-p 00000000 00:00 0 
+7f1cd5abf000-7f1cd5ac0000 ---p 00000000 00:00 0 
+7f1cd5ac0000-7f1cd5bc0000 rw-p 00000000 00:00 0 
+7f1cd5bc0000-7f1cd5bc1000 ---p 00000000 00:00 0 
+7f1cd5bc1000-7f1cd5cc1000 rw-p 00000000 00:00 0 
+7f1cd5cc1000-7f1cd5cc2000 ---p 00000000 00:00 0 
+7f1cd5cc2000-7f1cd5dc2000 rw-p 00000000 00:00 0 
+7f1cd5dc2000-7f1cd5dc3000 ---p 00000000 00:00 0 
+7f1cd5dc3000-7f1cd5ec3000 rw-p 00000000 00:00 0 
+7f1cd5ec3000-7f1cd5ec4000 ---p 00000000 00:00 0 
+7f1cd5ec4000-7f1cd5fc4000 rw-p 00000000 00:00 0 
+7f1cd5fc4000-7f1cd5fc5000 ---p 00000000 00:00 0 
+7f1cd5fc5000-7f1cd60c5000 rw-p 00000000 00:00 0 
+7f1cd60c5000-7f1cd60c6000 ---p 00000000 00:00 0 
+7f1cd60c6000-7f1cd61c6000 rw-p 00000000 00:00 0 
+7f1cd61c6000-7f1cd61c7000 ---p 00000000 00:00 0 
+7f1cd61c7000-7f1cd63d4000 rw-p 00000000 00:00 0 
+7f1cd63d4000-7f1cd641d000 ---p 00000000 00:00 0 
+7f1cd641d000-7f1cd652a000 rw-p 00000000 00:00 0 
+7f1cd652a000-7f1cd6572000 ---p 00000000 00:00 0 
+7f1cd6572000-7f1cd6648000 rw-p 00000000 00:00 0 
+7f1cd6648000-7f1cd69de000 ---p 00000000 00:00 0 
+7f1cd69de000-7f1cd69f8000 r-xp 00000000 ca:01 1855506                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libzip.so
+7f1cd69f8000-7f1cd6bf7000 ---p 0001a000 ca:01 1855506                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libzip.so
+7f1cd6bf7000-7f1cd6bf8000 rw-p 00019000 ca:01 1855506                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libzip.so
+7f1cd6bf8000-7f1cd6bf9000 rw-p 0001e000 ca:01 1855506                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libzip.so
+7f1cd6bf9000-7f1cd6c05000 r-xp 00000000 ca:01 2709                       /lib64/libnss_files-2.17.so
+7f1cd6c05000-7f1cd6e04000 ---p 0000c000 ca:01 2709                       /lib64/libnss_files-2.17.so
+7f1cd6e04000-7f1cd6e05000 r--p 0000b000 ca:01 2709                       /lib64/libnss_files-2.17.so
+7f1cd6e05000-7f1cd6e06000 rw-p 0000c000 ca:01 2709                       /lib64/libnss_files-2.17.so
+7f1cd6e06000-7f1cd6e0c000 rw-p 00000000 00:00 0 
+7f1cd6e0c000-7f1cd6e36000 r-xp 00000000 ca:01 1855515                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjava.so
+7f1cd6e36000-7f1cd7036000 ---p 0002a000 ca:01 1855515                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjava.so
+7f1cd7036000-7f1cd7038000 rw-p 0002a000 ca:01 1855515                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjava.so
+7f1cd7038000-7f1cd703c000 rw-p 00036000 ca:01 1855515                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libjava.so
+7f1cd703c000-7f1cd7049000 r-xp 00000000 ca:01 1855494                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libverify.so
+7f1cd7049000-7f1cd7249000 ---p 0000d000 ca:01 1855494                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libverify.so
+7f1cd7249000-7f1cd724b000 rw-p 0000d000 ca:01 1855494                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libverify.so
+7f1cd724b000-7f1cd724c000 rw-p 00011000 ca:01 1855494                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/libverify.so
+7f1cd724c000-7f1cd7e89000 r-xp 00000000 ca:01 1855539                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/server/libjvm.so
+7f1cd7e89000-7f1cd8089000 ---p 00c3d000 ca:01 1855539                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/server/libjvm.so
+7f1cd8089000-7f1cd8158000 rw-p 00c3d000 ca:01 1855539                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/server/libjvm.so
+7f1cd8158000-7f1cd819a000 rw-p 00000000 00:00 0 
+7f1cd819a000-7f1cd819d000 rw-p 00f82000 ca:01 1855539                    /home/ec2-user/anaconda3/envs/python3/jre/lib/amd64/server/libjvm.so
+7f1cd819d000-7f1cd819f000 r-xp 00000000 ca:01 2725                       /lib64/libutil-2.17.so
+7f1cd819f000-7f1cd839e000 ---p 00002000 ca:01 2725                       /lib64/libutil-2.17.so
+7f1cd839e000-7f1cd839f000 r--p 00001000 ca:01 2725                       /lib64/libutil-2.17.so
+7f1cd839f000-7f1cd83a0000 rw-p 00002000 ca:01 2725                       /lib64/libutil-2.17.so
+7f1cd83a0000-7f1cd84a1000 r-xp 00000000 ca:01 2699                       /lib64/libm-2.17.so
+7f1cd84a1000-7f1cd86a0000 ---p 00101000 ca:01 2699                       /lib64/libm-2.17.so
+7f1cd86a0000-7f1cd86a1000 r--p 00100000 ca:01 2699                       /lib64/libm-2.17.so
+7f1cd86a1000-7f1cd86a2000 rw-p 00101000 ca:01 2699                       /lib64/libm-2.17.so
+7f1cd86a2000-7f1cd86a9000 r-xp 00000000 ca:01 2721                       /lib64/librt-2.17.so
+7f1cd86a9000-7f1cd88a8000 ---p 00007000 ca:01 2721                       /lib64/librt-2.17.so
+7f1cd88a8000-7f1cd88a9000 r--p 00006000 ca:01 2721                       /lib64/librt-2.17.so
+7f1cd88a9000-7f1cd88aa000 rw-p 00007000 ca:01 2721                       /lib64/librt-2.17.so
+7f1cd88aa000-7f1cd897f000 r-xp 00000000 ca:01 1972570                    /usr/local/mpi/lib/libopen-pal.so.13.0.4
+7f1cd897f000-7f1cd8b7f000 ---p 000d5000 ca:01 1972570                    /usr/local/mpi/lib/libopen-pal.so.13.0.4
+7f1cd8b7f000-7f1cd8b87000 rw-p 000d5000 ca:01 1972570                    /usr/local/mpi/lib/libopen-pal.so.13.0.4
+7f1cd8b87000-7f1cd8b8d000 rw-p 00000000 00:00 0 
+7f1cd8b8d000-7f1cd8c02000 r-xp 00000000 ca:01 1972623                    /usr/local/mpi/lib/libopen-rte.so.12.0.4
+7f1cd8c02000-7f1cd8e02000 ---p 00075000 ca:01 1972623                    /usr/local/mpi/lib/libopen-rte.so.12.0.4
+7f1cd8e02000-7f1cd8e06000 rw-p 00075000 ca:01 1972623                    /usr/local/mpi/lib/libopen-rte.so.12.0.4
+7f1cd8e06000-7f1cd8e08000 rw-p 00000000 00:00 0 
+7f1cd8e08000-7f1cd8fc2000 r-xp 00000000 ca:01 2691                       /lib64/libc-2.17.so
+7f1cd8fc2000-7f1cd91c1000 ---p 001ba000 ca:01 2691                       /lib64/libc-2.17.so
+7f1cd91c1000-7f1cd91c5000 r--p 001b9000 ca:01 2691                       /lib64/libc-2.17.so
+7f1cd91c5000-7f1cd91c7000 rw-p 001bd000 ca:01 2691                       /lib64/libc-2.17.so
+7f1cd91c7000-7f1cd91cc000 rw-p 00000000 00:00 0 
+7f1cd91cc000-7f1cd91ce000 r-xp 00000000 ca:01 2697                       /lib64/libdl-2.17.so
+7f1cd91ce000-7f1cd93ce000 ---p 00002000 ca:01 2697                       /lib64/libdl-2.17.so
+7f1cd93ce000-7f1cd93cf000 r--p 00002000 ca:01 2697                       /lib64/libdl-2.17.so
+7f1cd93cf000-7f1cd93d0000 rw-p 00003000 ca:01 2697                       /lib64/libdl-2.17.so
+7f1cd93d0000-7f1cd93e5000 r-xp 00000000 ca:01 1855522                    /home/ec2-user/anaconda3/envs/python3/lib/amd64/jli/libjli.so
+7f1cd93e5000-7f1cd95e5000 ---p 00015000 ca:01 1855522                    /home/ec2-user/anaconda3/envs/python3/lib/amd64/jli/libjli.so
+7f1cd95e5000-7f1cd95e6000 rw-p 00015000 ca:01 1855522                    /home/ec2-user/anaconda3/envs/python3/lib/amd64/jli/libjli.so
+7f1cd95e6000-7f1cd95e7000 rw-p 00052000 ca:01 1855522                    /home/ec2-user/anaconda3/envs/python3/lib/amd64/jli/libjli.so
+7f1cd95e7000-7f1cd95fe000 r-xp 00000000 ca:01 2717                       /lib64/libpthread-2.17.so
+7f1cd95fe000-7f1cd97fd000 ---p 00017000 ca:01 2717                       /lib64/libpthread-2.17.so
+7f1cd97fd000-7f1cd97fe000 r--p 00016000 ca:01 2717                       /lib64/libpthread-2.17.so
+7f1cd97fe000-7f1cd97ff000 rw-p 00017000 ca:01 2717                       /lib64/libpthread-2.17.so
+7f1cd97ff000-7f1cd9803000 rw-p 00000000 00:00 0 
+7f1cd9803000-7f1cd98d2000 r-xp 00000000 ca:01 1972807                    /usr/local/mpi/lib/libmpi.so.12.0.7
+7f1cd98d2000-7f1cd9ad2000 ---p 000cf000 ca:01 1972807                    /usr/local/mpi/lib/libmpi.so.12.0.7
+7f1cd9ad2000-7f1cd9ae3000 rw-p 000cf000 ca:01 1972807                    /usr/local/mpi/lib/libmpi.so.12.0.7
+7f1cd9ae3000-7f1cd9af6000 rw-p 00000000 00:00 0 
+7f1cd9af6000-7f1cd9b17000 r-xp 00000000 ca:01 2684                       /lib64/ld-2.17.so
+7f1cd9b17000-7f1cd9b1e000 r--s 00058000 ca:01 799944                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-server-common-2.7.3.jar
+7f1cd9b1e000-7f1cd9c03000 rw-p 00000000 00:00 0 
+7f1cd9c03000-7f1cd9c06000 ---p 00000000 00:00 0 
+7f1cd9c06000-7f1cd9d0a000 rw-p 00000000 00:00 0 
+7f1cd9d0a000-7f1cd9d0b000 r--s 00002000 ca:01 799949                     /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/slf4j-log4j12-1.7.16.jar
+7f1cd9d0b000-7f1cd9d13000 rw-s 00000000 ca:01 267484                     /tmp/hsperfdata_ec2-user/39333
+7f1cd9d13000-7f1cd9d14000 rw-p 00000000 00:00 0 
+7f1cd9d14000-7f1cd9d15000 r--p 00000000 00:00 0 
+7f1cd9d15000-7f1cd9d17000 rw-p 00000000 00:00 0 
+7f1cd9d17000-7f1cd9d18000 r--p 00021000 ca:01 2684                       /lib64/ld-2.17.so
+7f1cd9d18000-7f1cd9d19000 rw-p 00022000 ca:01 2684                       /lib64/ld-2.17.so
+7f1cd9d19000-7f1cd9d1a000 rw-p 00000000 00:00 0 
+7ffe9b78b000-7ffe9b7ad000 rw-p 00000000 00:00 0                          [stack]
+7ffe9b7d4000-7ffe9b7d6000 r--p 00000000 00:00 0                          [vvar]
+7ffe9b7d6000-7ffe9b7d8000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xmx1g 
+java_command: org.apache.spark.deploy.SparkSubmit --conf spark.master=local[64] --conf spark.app.name=pandasToSparkDF pyspark-shell
+java_class_path (initial): /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/conf:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-yarn-server-common-2.7.3.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-shuffle-2.7.3.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/antlr4-runtime-4.7.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/mesos-1.4.0-shaded-protobuf.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/curator-framework-2.7.1.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/slf4j-log4j12-1.7.16.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/stax-api-1.0.1.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/snappy-0.2.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hk2-utils-2.4.0-b34.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/macro-compat_2.11-1.1.1.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/breeze_2.11-0.13.2.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/curator-recipes-2.7.1.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/arrow-format-0.8.0.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/commons-beanutils-1.7.0.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop-mapreduce-client-core-2.7.3.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/jtransforms-2.4.0.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/orc-mapreduce-1.4.4-nohive.jar:/home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages/pyspark/jars/hadoop
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/ec2-user/anaconda3/envs/python3
+PATH=/home/ec2-user/anaconda3/envs/python3/bin:/home/ec2-user/anaconda3/bin/:/usr/local/cuda/bin:/usr/local/bin:/opt/aws/bin:/usr/local/mpi/bin:/usr/local/cuda/bin:/usr/local/bin:/opt/aws/bin:/home/ec2-user/src/cntk/bin:/usr/local/mpi/bin:/usr/local/cuda/bin:/usr/local/bin:/opt/aws/bin:/usr/local/mpi/bin:/home/ec2-user/anaconda3/envs/JupyterSystemEnv/bin:/home/ec2-user/anaconda3/bin/:/usr/local/cuda/bin:/usr/local/bin:/opt/aws/bin:/usr/local/mpi/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/aws/bin:/opt/aws/bin
+LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64:/usr/local/cuda-9.0/extras/CUPTI/lib64:/lib/nccl/cuda-9.0/lib:/usr/lib64/openmpi/lib/:/usr/local/lib:/usr/lib:/usr/local/mpi/lib:/lib/:/usr/lib64/openmpi/lib/:/usr/local/lib:/usr/lib:/usr/local/mpi/lib:/lib/:/usr/lib64/openmpi/lib/:/usr/local/lib:/usr/lib:/usr/local/mpi/lib:/lib/:
+LD_PRELOAD=/usr/local/mpi/lib/libmpi.so
+SHELL=/bin/sh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa347e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa347e0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x89f8d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x89f8d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x89f8d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x89f8d0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8a0f90], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x8a2680], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: [libjvm.so+0x8a2680], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x8a2680], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:Amazon Linux AMI release 2017.09
+
+uname:Linux 4.9.93-41.60.amzn1.x86_64 #1 SMP Fri Apr 13 21:58:27 UTC 2018 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 1031742, NOFILE 4096, AS infinity
+load average:26.37 12.02 4.79
+
+/proc/meminfo:
+MemTotal:       264144008 kB
+MemFree:         1039380 kB
+MemAvailable:          0 kB
+Buffers:            3232 kB
+Cached:            55648 kB
+SwapCached:            0 kB
+Active:         261758772 kB
+Inactive:          49408 kB
+Active(anon):   261751880 kB
+Inactive(anon):       64 kB
+Active(file):       6892 kB
+Inactive(file):    49344 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               156 kB
+Writeback:             0 kB
+AnonPages:      261751924 kB
+Mapped:            36152 kB
+Shmem:                76 kB
+Slab:             162456 kB
+SReclaimable:      51428 kB
+SUnreclaim:       111028 kB
+KernelStack:       17536 kB
+PageTables:       521272 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    132072004 kB
+Committed_AS:   293200776 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       20480 kB
+DirectMap2M:     5222400 kB
+DirectMap1G:    264241152 kB
+
+
+CPU:total 64 (16 cores per cpu, 2 threads per core) family 6 model 79 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2752.026
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 0
+cpu cores	: 16
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2703.594
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 1
+cpu cores	: 16
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2706.402
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 2
+cpu cores	: 16
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2713.983
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 3
+cpu cores	: 16
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2734.619
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 4
+cpu cores	: 16
+apicid		: 8
+initial apicid	: 8
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2568.127
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 5
+cpu cores	: 16
+apicid		: 10
+initial apicid	: 10
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2718.194
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 6
+cpu cores	: 16
+apicid		: 12
+initial apicid	: 12
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2718.896
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 7
+cpu cores	: 16
+apicid		: 14
+initial apicid	: 14
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 8
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2751.464
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 8
+cpu cores	: 16
+apicid		: 16
+initial apicid	: 16
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 9
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2710.614
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 9
+cpu cores	: 16
+apicid		: 18
+initial apicid	: 18
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 10
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.646
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 10
+cpu cores	: 16
+apicid		: 20
+initial apicid	: 20
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 11
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2544.964
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 11
+cpu cores	: 16
+apicid		: 22
+initial apicid	: 22
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 12
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 1516.534
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 12
+cpu cores	: 16
+apicid		: 24
+initial apicid	: 24
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 13
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.787
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 13
+cpu cores	: 16
+apicid		: 26
+initial apicid	: 26
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 14
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.787
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 14
+cpu cores	: 16
+apicid		: 28
+initial apicid	: 28
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 15
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2701.629
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 15
+cpu cores	: 16
+apicid		: 30
+initial apicid	: 30
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 16
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.804
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 0
+cpu cores	: 16
+apicid		: 64
+initial apicid	: 64
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 17
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.927
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 1
+cpu cores	: 16
+apicid		: 66
+initial apicid	: 66
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 18
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 2
+cpu cores	: 16
+apicid		: 68
+initial apicid	: 68
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 19
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.102
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 3
+cpu cores	: 16
+apicid		: 70
+initial apicid	: 70
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 20
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2701.348
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 4
+cpu cores	: 16
+apicid		: 72
+initial apicid	: 72
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 21
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.225
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 5
+cpu cores	: 16
+apicid		: 74
+initial apicid	: 74
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 22
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.366
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 6
+cpu cores	: 16
+apicid		: 76
+initial apicid	: 76
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 23
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.927
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 7
+cpu cores	: 16
+apicid		: 78
+initial apicid	: 78
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 24
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2701.348
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 8
+cpu cores	: 16
+apicid		: 80
+initial apicid	: 80
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 25
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.366
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 9
+cpu cores	: 16
+apicid		: 82
+initial apicid	: 82
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 26
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 10
+cpu cores	: 16
+apicid		: 84
+initial apicid	: 84
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 27
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.506
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 11
+cpu cores	: 16
+apicid		: 86
+initial apicid	: 86
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 28
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.646
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 12
+cpu cores	: 16
+apicid		: 88
+initial apicid	: 88
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 29
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2704.577
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 13
+cpu cores	: 16
+apicid		: 90
+initial apicid	: 90
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 30
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.366
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 14
+cpu cores	: 16
+apicid		: 92
+initial apicid	: 92
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 31
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 15
+cpu cores	: 16
+apicid		: 94
+initial apicid	: 94
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 32
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2706.542
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 0
+cpu cores	: 16
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 33
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2705.419
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 1
+cpu cores	: 16
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 34
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.225
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 2
+cpu cores	: 16
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 35
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.646
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 3
+cpu cores	: 16
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 36
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2740.374
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 4
+cpu cores	: 16
+apicid		: 9
+initial apicid	: 9
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 37
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2649.548
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 5
+cpu cores	: 16
+apicid		: 11
+initial apicid	: 11
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 38
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2709.210
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 6
+cpu cores	: 16
+apicid		: 13
+initial apicid	: 13
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 39
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 7
+cpu cores	: 16
+apicid		: 15
+initial apicid	: 15
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 40
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2715.808
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 8
+cpu cores	: 16
+apicid		: 17
+initial apicid	: 17
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 41
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2455.120
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 9
+cpu cores	: 16
+apicid		: 19
+initial apicid	: 19
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 42
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2564.898
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 10
+cpu cores	: 16
+apicid		: 21
+initial apicid	: 21
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 43
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2707.806
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 11
+cpu cores	: 16
+apicid		: 23
+initial apicid	: 23
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 44
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2739.953
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 12
+cpu cores	: 16
+apicid		: 25
+initial apicid	: 25
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 45
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 13
+cpu cores	: 16
+apicid		: 27
+initial apicid	: 27
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 46
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 14
+cpu cores	: 16
+apicid		: 29
+initial apicid	: 29
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 47
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2713.702
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 32
+core id		: 15
+cpu cores	: 16
+apicid		: 31
+initial apicid	: 31
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4600.11
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 48
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 0
+cpu cores	: 16
+apicid		: 65
+initial apicid	: 65
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 49
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 1
+cpu cores	: 16
+apicid		: 67
+initial apicid	: 67
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 50
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 2
+cpu cores	: 16
+apicid		: 69
+initial apicid	: 69
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 51
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.646
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 3
+cpu cores	: 16
+apicid		: 71
+initial apicid	: 71
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 52
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 4
+cpu cores	: 16
+apicid		: 73
+initial apicid	: 73
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 53
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.102
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 5
+cpu cores	: 16
+apicid		: 75
+initial apicid	: 75
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 54
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.787
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 6
+cpu cores	: 16
+apicid		: 77
+initial apicid	: 77
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 55
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2699.945
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 7
+cpu cores	: 16
+apicid		: 79
+initial apicid	: 79
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 56
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 8
+cpu cores	: 16
+apicid		: 81
+initial apicid	: 81
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 57
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 9
+cpu cores	: 16
+apicid		: 83
+initial apicid	: 83
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 58
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.927
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 10
+cpu cores	: 16
+apicid		: 85
+initial apicid	: 85
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 59
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 11
+cpu cores	: 16
+apicid		: 87
+initial apicid	: 87
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 60
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2701.348
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 12
+cpu cores	: 16
+apicid		: 89
+initial apicid	: 89
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 61
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.085
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 13
+cpu cores	: 16
+apicid		: 91
+initial apicid	: 91
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 62
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.646
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 14
+cpu cores	: 16
+apicid		: 93
+initial apicid	: 93
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 63
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb00002a
+cpu MHz		: 2700.225
+cache size	: 46080 KB
+physical id	: 1
+siblings	: 32
+core id		: 15
+cpu cores	: 16
+apicid		: 95
+initial apicid	: 95
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq monitor est ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single kaiser fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm xsaveopt ida
+bugs		: cpu_meltdown spectre_v1 spectre_v2
+bogomips	: 4661.49
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 264144008k(1035040k free), swap 0k(0k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.121-b15) for linux-amd64 JRE (1.8.0_121-b15), built on Jan 21 2017 05:06:42 by "zulu_re" with gcc 4.4.7 20120313 (Red Hat 4.4.7-3)
+
+time: Fri Aug 17 22:28:03 2018
+elapsed time: 2450 seconds (0d 0h 40m 50s)
+

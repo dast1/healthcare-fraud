@@ -3,6 +3,7 @@ import boto3
 import numpy as np
 from multiprocessing import Pool
 import matplotlib.pyplot as plt
+from sklearn import metrics
 
 
 def read_from_efs(f_name, **kwargs):
@@ -200,3 +201,73 @@ def get_NPI_counts(PartD, LEIE):
 
 def bar_plot_NPI_count(NPI_counts):
     NPI_counts.plot.barh(logx=True, grid=True, figsize=(8,5), fontsize=14, legend=None, title='Count')
+    
+def run_random_forest(X,y):
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.2, stratify=y)
+    
+    clf = RandomForestClassifier(n_jobs=-1)
+    
+    clf.fit(X_train, y_train)
+    y_pred = clf.predict(X_test)
+    return y_test, y_pred
+
+def plot_roc(y_test, y_pred, title):
+    fpr, tpr, threshold = metrics.roc_curve(y_test, y_pred)
+    roc_auc = metrics.auc(fpr, tpr)
+
+    # method I: plt
+    plt.title(title)
+    plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
+    plt.legend(loc = 'lower right')
+    plt.plot([0, 1], [0, 1],'r--')
+    plt.xlim([0, 1])
+    plt.ylim([0, 1])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+    plt.show()
+    
+def random_sample(X, y, size=1000000, minority_ratio=0.05):
+    # add y to X
+    X['label'] = y
+    
+    # Isolate minority & majority class
+    X_minority = X[y].reset_index(drop=True)
+    X_majority = X[~y].reset_index(drop=True)
+
+    minority_idx = np.random.randint(low=0,high=X_minority.shape[0], size=round(size*minority_ratio))
+    majority_idx = np.random.randint(low=0,high=X_majority.shape[0], size=round(size*(1-minority_ratio)))
+    
+    over_samp = X_minority.iloc[minority_idx]
+    under_samp = X_majority.iloc[majority_idx]
+    
+    X_adj = pd.concat([over_samp, under_samp], axis=0).reset_index(drop=True)
+    y_adj = X_adj.pop('label')
+    
+    return X_adj, y_adj
+
+def grid_search_wrapper(refit_score='precision_score'):
+    """
+    fits a GridSearchCV classifier using refit_score for optimization
+    prints classifier performance metrics
+    """
+    skf = StratifiedKFold(n_splits=10)
+    grid_search = GridSearchCV(clf, param_grid, scoring=scorers, refit=refit_score,
+                           cv=skf, return_train_score=True, n_jobs=-1)
+    grid_search.fit(X_train.values, y_train.values)
+
+    # make the predictions
+    y_pred = grid_search.predict(X_test.values)
+
+    print('Best params for {}'.format(refit_score))
+    print(grid_search.best_params_)
+
+    # confusion matrix on the test data.
+    print('\nConfusion matrix of Random Forest optimized for {} on the test data:'.format(refit_score))
+    print(pd.DataFrame(confusion_matrix(y_test, y_pred),
+                 columns=['pred_neg', 'pred_pos'], index=['neg', 'pos']))
+    return grid_search
+
+def conf_mat(y_test, y_pred):
+    y_test = pd.Series(y_test, name='Actual')
+    y_pred = pd.Series(y_pred, name='Predicted')
+    return pd.crosstab(y_test, y_pred, ).T

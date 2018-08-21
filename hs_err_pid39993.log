@@ -1,0 +1,31 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 12288 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=39993, tid=0x00007fc0831f1700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_121-b15) (build 1.8.0_121-b15)
+# Java VM: OpenJDK 64-Bit Server VM (25.121-b15 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fbc2c001000):  JavaThread "SparkUI-465" daemon [_thread_new, id=41650, stack(0x00007fc0830f1000,0x00007fc0831f2000)]
+
+Stack: [0x00007fc0830f1000,0x00007fc0831f2000],  sp=0x00007fc0831f0990,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V
