@@ -1,5 +1,8 @@
 # Detecting Healthcare Fraud Using Machine Learning[¶](#Detecting-Healthcare-Fraud-Using-Machine-Learning)
 
+[Video Presentation](https://youtu.be/rYsj_TqLmPs)
+A short summary video presentation as of August 22, 2018.
+
 ## 1\. Background and Motivation[¶](#1.-Background-and-Motivation)
 
 The Institute of Medicine estimated that 30 percent of U.S. health spending (public and private) in 2009 — roughly `$750 billion — was wasted` on unnecessary services, excessive administrative costs, `fraud`, and other problems. And according to the 2016 Ernst and Young audit report of the US Department of Health and Human Services, HHS did not achieve an `improper payment rate` of less than `10 percent` for the Medicare Fee-for-Service and Medicaid programs. (sources: [Management Issue 5](https://oig.hhs.gov/reports-and-publications/top-challenges/2012/issue05.asp) and [2016 FY Audit Report](https://oig.hhs.gov/oas/reports/region17/171752000.asp))  
