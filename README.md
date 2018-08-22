@@ -7,7 +7,7 @@
 
 The Institute of Medicine estimated that 30 percent of U.S. health spending (public and private) in 2009 — roughly `$750 billion — was wasted` on unnecessary services, excessive administrative costs, `fraud`, and other problems. And according to the 2016 Ernst and Young audit report of the US Department of Health and Human Services, HHS did not achieve an `improper payment rate` of less than `10 percent` for the Medicare Fee-for-Service and Medicaid programs. (sources: [Management Issue 5](https://oig.hhs.gov/reports-and-publications/top-challenges/2012/issue05.asp) and [2016 FY Audit Report](https://oig.hhs.gov/oas/reports/region17/171752000.asp))  
 
-The primary motivation of this project is to explore the viability of using Machine Learning and Artificial Intelegence to detect potential fraud using publicly available data sources.
+The primary motivation of this project is to explore the viability of using Machine Learning and Artificial Intelligence to detect potential fraud using publicly available data sources.
 
 </div>
 
@@ -96,11 +96,11 @@ I used standard Python based Data Science tech stack. Also, given that I had lar
 
 <center>Figure 3: Imbalanced Classes</center>
 
-Generally, imbalanced classes is common in fraud detection. In other words, we'd expect to see far fewer fraudulent transactions relative to the non-fraudulent ones. In my case, the ratio is roughly 1-to-1000\.  
+Generally, imbalanced classes are common in fraud detection. In other words, we'd expect to see far fewer fraudulent transactions relative to the non-fraudulent ones. In my case, the ratio is roughly 1-to-1000\.  
 
 A common strategy to balance out the labels is to either undersample the majority class or oversample the minority target class. I chose the latter and I used Random Bootstrap Sampling and SMOTE. The implementation of the code can be found [here](src/over_sample.py).  
 
-Since a large number of excluded healthcare providers didn't have a National Provider Identifier, I tried matching the records by name, specialty, and state using fuzzy-wuzzy. Over 25 million pairs were compared but the results didn't yield in a significant contribution to address the `imbalanced classes` issue, so I didn't incorporate any of the resulting records into my model. You may still find the notebook with the implementation of fuzzy-wuzzy string matching [here](notebook/fuzzy-wuzzy.py).  
+Since a large number of excluded healthcare providers didn't have a National Provider Identifier, I tried matching the records by name, specialty, and state using fuzzy-wuzzy. Over 25 million pairs were compared but the results didn't yield a significant contribution to address the `imbalanced classes` issue, so I didn't incorporate any of the resulting records into my model. You may still find the notebook with the implementation of fuzzy-wuzzy string matching [here](notebook/fuzzy-wuzzy.py).  
 
 ![](images/exclusion_ratio.png)
 
@@ -108,7 +108,7 @@ Since a large number of excluded healthcare providers didn't have a National Pro
 
 <center>Figure 4: Exclusion Ratio by State</center>
 
-And finally, to maximize the presence of the target signal, i.e. the ratio of excluded providers relative to the total number of providers, I considered to limit the scope of the model only to the States with the highest exclusion ratios. The implementation of this strategy can be found in [this](notebook/exclusion_ratio.py) notebook.</div>
+And finally, to maximize the presence of the target signal, i.e. the ratio of excluded providers relative to the total number of providers, I considered limiting the scope of the model only to the States with the highest exclusion ratios. The implementation of this strategy can be found in [this](notebook/exclusion_ratio.py) notebook.</div>
 
 </div>
 
@@ -142,7 +142,7 @@ Next, I ran the model through other ensemble algorithms but the `Gradient Booste
 > AUC score: 0.78  
 > Cross Validation score (mean): 0.63
 
-Also, the model picked up on these 2 features as most predective:
+Also, the model picked up on these 2 features as most predictive:
 
 > 30-day fill count  
 > total day supply
