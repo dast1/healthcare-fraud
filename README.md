@@ -1,13 +1,3 @@
-<div tabindex="-1" id="notebook" class="border-box-sizing">
-
-<div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-
-<div class="inner_cell">
-
-<div class="text_cell_render border-box-sizing rendered_html">
-
 # Detecting Healthcare Fraud Using Machine Learning[¶](#Detecting-Healthcare-Fraud-Using-Machine-Learning)
 
 ## 1\. Background and Motivation[¶](#1.-Background-and-Motivation)
@@ -178,12 +168,4 @@ And finally, the implementation of the model can be found in [this](notebook/mod
 
 <center>Figure 6: Next Steps</center>
 
-This is a very interestig topic. My next steps, will include incorporating more data sets in the hope of driving up model performance.</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
+This is a very interestig topic. My next steps will include incorporating more data sets in the hope of driving up model performance.</div>
