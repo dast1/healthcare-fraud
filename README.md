@@ -14,7 +14,7 @@ The primary motivation of this project is to explore the viability of using `Mac
 <br>
 The are plenty of data sources that can be incorporated into the Machine Learning model but given the time constraints, I imposed to initially limit the scope to:
 > Drug Prescription Data from Medicare as predictors, and <br>
-> List of Excluded Individuals and Entities as my targets.<br>
+> List of Excluded Individuals and Entities as my targets.
 
 The exploratory data analysis into these data sets can be found [here](notebooks/EDA.ipynb).
 
