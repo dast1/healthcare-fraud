@@ -1,7 +1,7 @@
 # Detecting Healthcare Fraud Using Machine Learning[¶](#Detecting-Healthcare-Fraud-Using-Machine-Learning)
 
-[Video Presentation](https://youtu.be/rYsj_TqLmPs)
-A short summary video presentation as of August 22, 2018.
+![[Video](images/youtube.png)](https://youtu.be/rYsj_TqLmPs)
+<center>Video Presentation - August 22, 2018</center>
 
 ## 1\. Background and Motivation[¶](#1.-Background-and-Motivation)
 
